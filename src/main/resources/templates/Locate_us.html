@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Service Area | FoodFrenzy</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Navigation CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Navigation.css}">
+
+    <!-- Location CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Locate_us.css}">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<div th:replace="~{Navigation :: navbar}"></div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="location-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            FOODFRENZY SERVICE AREA
+        </span>
+
+        <h1>
+            Delicious Food,
+            <span>Wherever You Are.</span>
+        </h1>
+
+        <p>
+            FoodFrenzy is an online food ordering application
+            currently serving customers in Asansol and Durgapur,
+            West Bengal.
+        </p>
+
+        <a th:href="@{/products}"
+           class="hero-button">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            Explore Menu
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICE AREA
+===================================================== -->
+
+<section class="service-section">
+
+    <div class="section-title">
+
+        <span>OUR COVERAGE</span>
+
+        <h2>
+            FoodFrenzy Service Area
+        </h2>
+
+        <p>
+            Currently serving selected locations in West Bengal.
+        </p>
+
+    </div>
+
+
+    <div class="service-container">
+
+
+        <!-- MAP AREA -->
+
+        <div class="map-box">
+
+            <div class="map-top">
+
+                <div>
+
+                    <small>
+                        SERVICE REGION
+                    </small>
+
+                    <h3>
+                        West Bengal, India
+                    </h3>
+
+                </div>
+
+                <div class="map-icon">
+
+                    <i class="fa-solid fa-map-location-dot"></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAP VISUAL -->
+
+            <div class="map-area">
+
+                <div class="map-route">
+
+                    <div class="map-pin asansol-pin">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <span>
+                            Asansol
+                        </span>
+
+                    </div>
+
+
+                    <div class="map-road"></div>
+
+
+                    <div class="map-pin durgapur-pin">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <span>
+                            Durgapur
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="map-description">
+
+                <p>
+                    FoodFrenzy currently provides online
+                    food ordering services in
+                    <strong>Asansol</strong> and
+                    <strong>Durgapur</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="map-footer">
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Asansol%2C+West+Bengal%2C+India"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="map-button">
+
+                    <i class="fa-brands fa-google"></i>
+
+                    Explore Asansol on Google Maps
+
+                </a>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Durgapur%2C+West+Bengal%2C+India"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="map-button secondary">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Explore Durgapur on Google Maps
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CITY CARDS -->
+
+        <div class="cities-box">
+
+            <div class="cities-title">
+
+                <small>
+                    AVAILABLE LOCATIONS
+                </small>
+
+                <h3>
+                    Our Service Cities
+                </h3>
+
+            </div>
+
+
+            <!-- ASANSOL -->
+
+            <a href="https://www.google.com/maps/search/?api=1&query=Asansol%2C+West+Bengal%2C+India"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="city">
+
+                <div class="city-icon">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+
+                <div class="city-text">
+
+                    <h4>
+                        Asansol
+                    </h4>
+
+                    <p>
+                        Online food ordering service
+                    </p>
+
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+            </a>
+
+
+            <!-- DURGAPUR -->
+
+            <a href="https://www.google.com/maps/search/?api=1&query=Durgapur%2C+West+Bengal%2C+India"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="city">
+
+                <div class="city-icon">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+
+                <div class="city-text">
+
+                    <h4>
+                        Durgapur
+                    </h4>
+
+                    <p>
+                        Online food ordering service
+                    </p>
+
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+            </a>
+
+
+            <!-- SERVICE NOTE -->
+
+            <div class="service-note">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <p>
+                    More locations may be added in the
+                    future as FoodFrenzy expands its
+                    service coverage.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section class="delivery-section">
+
+    <div class="section-title">
+
+        <span>FOODFRENZY DELIVERY</span>
+
+        <h2>
+            How It Works
+        </h2>
+
+        <p>
+            Enjoy a simple online food ordering experience.
+        </p>
+
+    </div>
+
+
+    <div class="steps-container">
+
+
+        <!-- STEP 01 -->
+
+        <div class="step-card">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-icon">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <h3>
+                Browse
+            </h3>
+
+            <p>
+                Explore food items available
+                on the FoodFrenzy menu.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 02 -->
+
+        <div class="step-card">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-icon">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+            </div>
+
+            <h3>
+                Order
+            </h3>
+
+            <p>
+                Select your favorite items
+                and place your order online.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 03 -->
+
+        <div class="step-card">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-icon">
+
+                <i class="fa-solid fa-location-arrow"></i>
+
+            </div>
+
+            <h3>
+                Confirm
+            </h3>
+
+            <p>
+                Confirm your order details
+                and delivery location.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 04 -->
+
+        <div class="step-card">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div class="step-icon">
+
+                <i class="fa-solid fa-house"></i>
+
+            </div>
+
+            <h3>
+                Enjoy
+            </h3>
+
+            <p>
+                Sit back and enjoy your
+                ordering experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ONLINE SERVICE INFORMATION
+===================================================== -->
+
+<section class="info-section">
+
+    <div class="info-container">
+
+
+        <div class="info-content">
+
+            <span>
+                ONLINE FOOD ORDERING
+            </span>
+
+            <h2>
+                FoodFrenzy is built for convenience.
+            </h2>
+
+            <p>
+                FoodFrenzy is designed as an online food
+                ordering platform, so customers do not need
+                to visit a physical restaurant. Simply browse
+                the menu, place an order, and enjoy a convenient
+                ordering experience.
+            </p>
+
+
+            <div class="info-list">
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <span>
+                        Online food ordering
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <span>
+                        Service available in Asansol
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <span>
+                        Service available in Durgapur
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <span>
+                        Easy and user-friendly interface
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="online-card">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <h3>
+                Order Online
+            </h3>
+
+            <p>
+                From Asansol to Durgapur,
+                FoodFrenzy makes ordering simple.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CALL TO ACTION
+===================================================== -->
+
+<section class="location-cta">
+
+    <div class="cta-content">
+
+        <span>
+            YOUR NEXT MEAL IS WAITING
+        </span>
+
+        <h2>
+            Ready to order?
+        </h2>
+
+        <p>
+            Explore our menu and discover
+            something delicious today.
+        </p>
+
+        <a th:href="@{/products}"
+           class="cta-button">
+
+            Order Now
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="location-footer">
+
+    <div class="footer-brand">
+
+        <h3>
+            FoodFrenzy
+        </h3>
+
+        <p>
+            Delicious food. Simple ordering.
+        </p>
+
+    </div>
+
+
+    <div class="footer-service">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <span>
+            Service Area: Asansol &amp; Durgapur
+        </span>
+
+    </div>
+
+
+    <p class="copyright">
+        © 2026 FoodFrenzy. All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

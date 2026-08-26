@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodFrenzy | Fresh Food Delivered Fast</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Navigation CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Navigation.css}">
+
+    <!-- Home CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Home.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<div th:replace="~{Navigation :: navbar}"></div>
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+
+        <!-- FOOD BADGE -->
+
+        <div class="hero-tag">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <span>
+                Fresh • Tasty • Fast
+            </span>
+
+        </div>
+
+
+        <!-- MAIN HEADING -->
+
+        <h1>
+
+            Fresh Food
+
+            <span>
+                Delivered Fast
+            </span>
+
+        </h1>
+
+
+        <!-- DESCRIPTION -->
+
+        <p>
+            Discover delicious meals from FoodFrenzy.
+            Browse our menu, choose your favorite food,
+            and place your order online with ease.
+        </p>
+
+
+        <!-- BUTTONS -->
+
+        <div class="hero-buttons">
+
+            <a th:href="@{/products}"
+               class="hero-btn">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                Order Now
+
+            </a>
+
+
+            <a th:href="@{/products}"
+               class="hero-btn-outline">
+
+                <i class="fa-solid fa-utensils"></i>
+
+                Explore Menu
+
+            </a>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="hero-stats">
+
+
+            <div class="stat">
+
+                <h3>
+                    500+
+                </h3>
+
+                <span>
+                    Happy Customers
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    100+
+                </h3>
+
+                <span>
+                    Food Items
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    30 Min
+                </h3>
+
+                <span>
+                    Fast Delivery
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO IMAGE -->
+
+    <div class="hero-image">
+
+        <img th:src="@{/images/hero/hero-food.png}"
+             alt="FoodFrenzy Food">
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     POPULAR CATEGORIES
+===================================================== -->
+
+<section class="categories">
+
+    <div class="section-title">
+
+        <span>
+            Popular Categories
+        </span>
+
+        <h2>
+            Choose Your Favorite Food
+        </h2>
+
+        <p>
+            Explore delicious food options and
+            find something you will love.
+        </p>
+
+    </div>
+
+
+    <div class="category-container">
+
+
+        <!-- PIZZA -->
+
+        <div class="category-card">
+
+            <img th:src="@{/images/categories/pizza.png}"
+                 alt="Pizza">
+
+            <h3>
+                Pizza
+            </h3>
+
+            <p>
+                Cheesy &amp; Delicious
+            </p>
+
+        </div>
+
+
+        <!-- BURGER -->
+
+        <div class="category-card">
+
+            <img th:src="@{/images/categories/burger.png}"
+                 alt="Burger">
+
+            <h3>
+                Burger
+            </h3>
+
+            <p>
+                Juicy &amp; Crispy
+            </p>
+
+        </div>
+
+
+        <!-- CHICKEN -->
+
+        <div class="category-card">
+
+            <img th:src="@{/images/categories/chicken.png}"
+                 alt="Chicken">
+
+            <h3>
+                Chicken
+            </h3>
+
+            <p>
+                Fresh &amp; Spicy
+            </p>
+
+        </div>
+
+
+        <!-- DRINKS -->
+
+        <div class="category-card">
+
+            <img th:src="@{/images/categories/drink.png}"
+                 alt="Cold Drinks">
+
+            <h3>
+                Cold Drinks
+            </h3>
+
+            <p>
+                Cool &amp; Refreshing
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+===================================================== -->
+
+<section class="why-us">
+
+    <div class="section-title">
+
+        <span>
+            Why Choose Us
+        </span>
+
+        <h2>
+            Why Customers Love FoodFrenzy
+        </h2>
+
+        <p>
+            Designed to make online food ordering
+            simple, convenient, and enjoyable.
+        </p>
+
+    </div>
+
+
+    <div class="why-container">
+
+
+        <!-- FAST DELIVERY -->
+
+        <div class="why-card">
+
+            <div class="why-icon">
+
+                <i class="fa-solid fa-truck-fast"></i>
+
+            </div>
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Get your favorite food quickly
+                through our convenient ordering experience.
+            </p>
+
+        </div>
+
+
+        <!-- FRESH FOOD -->
+
+        <div class="why-card">
+
+            <div class="why-icon">
+
+                <i class="fa-solid fa-bowl-food"></i>
+
+            </div>
+
+            <h3>
+                Fresh Food
+            </h3>
+
+            <p>
+                Explore a variety of food choices
+                prepared with quality ingredients.
+            </p>
+
+        </div>
+
+
+        <!-- SECURE -->
+
+        <div class="why-card">
+
+            <div class="why-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <h3>
+                Secure Experience
+            </h3>
+
+            <p>
+                Enjoy a reliable and user-friendly
+                online ordering experience.
+            </p>
+
+        </div>
+
+
+        <!-- QUALITY -->
+
+        <div class="why-card">
+
+            <div class="why-icon">
+
+                <i class="fa-solid fa-star"></i>
+
+            </div>
+
+            <h3>
+                Great Quality
+            </h3>
+
+            <p>
+                Discover delicious food options
+                with a focus on quality and convenience.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodFrenzy - My Orders</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Navigation CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Navigation.css}">
+
+    <!-- My Orders CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/MyOrders.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<div th:replace="~{Navigation :: navbar}"></div>
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <div class="header-icon">
+
+        <i class="fa-solid fa-receipt"></i>
+
+    </div>
+
+    <h1>
+        My Orders
+    </h1>
+
+    <p>
+        Track your recent order and view your complete order history.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN ORDERS CONTAINER
+===================================================== -->
+
+<div class="orders-container"
+     th:if="${orders != null and !#lists.isEmpty(orders)}">
+
+
+    <!-- =================================================
+         RECENT ORDER
+    ================================================== -->
+
+    <section class="recent-section">
+
+
+        <!-- SECTION TITLE -->
+
+        <div class="section-title">
+
+            <div>
+
+                <div class="section-label">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    RECENT ORDER
+
+                </div>
+
+                <h2>
+                    Your Latest Order
+                </h2>
+
+            </div>
+
+
+            <div class="recent-badge">
+
+                <i class="fa-solid fa-clock"></i>
+
+                Most Recent
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RECENT ORDER CARD
+             First order = latest order
+        ================================================== -->
+
+        <div class="recent-order-card"
+             th:with="recentOrder=${orders[0]}">
+
+
+            <!-- PRODUCT IMAGE -->
+
+            <div class="recent-image-wrapper">
+
+                <img class="recent-image"
+                     th:src="@{${recentOrder.productImage}}"
+                     th:alt="${recentOrder.orderName}"
+                     onerror="this.onerror=null; this.src='/images/logo.png';">
+
+
+                <div class="image-overlay">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ORDER INFORMATION -->
+
+            <div class="recent-info">
+
+
+                <!-- TOP -->
+
+                <div class="recent-top">
+
+                    <div>
+
+                        <div class="small-label">
+                            ORDER #<span th:text="${recentOrder.orderId}">0</span>
+                        </div>
+
+                        <h3 th:text="${recentOrder.orderName}">
+                            Product Name
+                        </h3>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <span class="status status-pending"
+                          th:if="${recentOrder.orderStatus == null or recentOrder.orderStatus == 'Pending'}">
+
+                        <i class="fa-solid fa-circle"></i>
+
+                        <span th:text="${recentOrder.orderStatus != null ? recentOrder.orderStatus : 'Pending'}">
+                            Pending
+                        </span>
+
+                    </span>
+
+
+                    <span class="status status-delivery"
+                          th:if="${recentOrder.orderStatus == 'Out for Delivery'}">
+
+                        <i class="fa-solid fa-circle"></i>
+
+                        <span>
+                            Out for Delivery
+                        </span>
+
+                    </span>
+
+
+                    <span class="status status-delivered"
+                          th:if="${recentOrder.orderStatus == 'Delivered'}">
+
+                        <i class="fa-solid fa-circle"></i>
+
+                        Delivered
+
+                    </span>
+
+
+                    <span class="status status-cancelled"
+                          th:if="${recentOrder.orderStatus == 'Cancelled'}">
+
+                        <i class="fa-solid fa-circle"></i>
+
+                        Cancelled
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ORDER DETAILS
+                ================================================== -->
+
+                <div class="recent-details">
+
+
+                    <!-- PRICE -->
+
+                    <div class="detail-item">
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                        <div>
+
+                            <span>
+                                Price
+                            </span>
+
+                            <strong>
+                                ₹
+                                <span th:text="${recentOrder.orderPrice}">
+                                    0
+                                </span>
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- QUANTITY -->
+
+                    <div class="detail-item">
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        <div>
+
+                            <span>
+                                Quantity
+                            </span>
+
+                            <strong th:text="${recentOrder.orderQuantity}">
+                                1
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TOTAL -->
+
+                    <div class="detail-item">
+
+                        <i class="fa-solid fa-wallet"></i>
+
+                        <div>
+
+                            <span>
+                                Total
+                            </span>
+
+                            <strong>
+
+                                ₹
+                                <span th:text="${recentOrder.totalAmount}">
+                                    0
+                                </span>
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ORDER DATE
+                ================================================== -->
+
+                <div class="recent-details">
+
+
+                    <div class="detail-item">
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                        <div>
+
+                            <span>
+                                Order Date
+                            </span>
+
+                            <strong
+                                    th:if="${recentOrder.orderDate != null}"
+                                    th:text="${#dates.format(recentOrder.orderDate,'dd MMM yyyy')}">
+
+                                01 Jan 2026
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <i class="fa-solid fa-hashtag"></i>
+
+                        <div>
+
+                            <span>
+                                Order ID
+                            </span>
+
+                            <strong th:text="${recentOrder.orderId}">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <i class="fa-solid fa-truck-fast"></i>
+
+                        <div>
+
+                            <span>
+                                Delivery
+                            </span>
+
+                            <strong>
+                                Free
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ORDER TRACKER
+                ================================================== -->
+
+                <div class="order-tracker">
+
+
+                    <!-- PLACED -->
+
+                    <div class="tracker-step active">
+
+                        <div class="tracker-icon">
+
+                            <i class="fa-solid fa-receipt"></i>
+
+                        </div>
+
+                        <span>
+                            Order Placed
+                        </span>
+
+                    </div>
+
+
+                    <div class="tracker-line"></div>
+
+
+                    <!-- CONFIRMED -->
+
+                    <div class="tracker-step"
+                         th:classappend="${recentOrder.orderStatus == 'Confirmed' or recentOrder.orderStatus == 'Out for Delivery' or recentOrder.orderStatus == 'Delivered'} ? ' active' : ''">
+
+                        <div class="tracker-icon">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                        </div>
+
+                        <span>
+                            Confirmed
+                        </span>
+
+                    </div>
+
+
+                    <div class="tracker-line"></div>
+
+
+                    <!-- DELIVERY -->
+
+                    <div class="tracker-step"
+                         th:classappend="${recentOrder.orderStatus == 'Out for Delivery' or recentOrder.orderStatus == 'Delivered'} ? ' active' : ''">
+
+                        <div class="tracker-icon">
+
+                            <i class="fa-solid fa-motorcycle"></i>
+
+                        </div>
+
+                        <span>
+                            Out for Delivery
+                        </span>
+
+                    </div>
+
+
+                    <div class="tracker-line"></div>
+
+
+                    <!-- DELIVERED -->
+
+                    <div class="tracker-step"
+                         th:classappend="${recentOrder.orderStatus == 'Delivered'} ? ' active' : ''">
+
+                        <div class="tracker-icon">
+
+                            <i class="fa-solid fa-house-circle-check"></i>
+
+                        </div>
+
+                        <span>
+                            Delivered
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ORDER HISTORY
+    ====================================================== -->
+
+    <section class="history-section">
+
+
+        <!-- TITLE -->
+
+        <div class="section-title history-title">
+
+            <div>
+
+                <div class="section-label">
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    ORDER HISTORY
+
+                </div>
+
+                <h2>
+                    Previous Orders
+                </h2>
+
+            </div>
+
+
+            <div class="order-count">
+
+                <i class="fa-solid fa-box"></i>
+
+                <span th:text="${#lists.size(orders)}">
+                    0
+                </span>
+
+                Orders
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HISTORY LIST
+        ================================================== -->
+
+        <div class="history-list">
+
+
+            <div class="history-card"
+                 th:each="order : ${orders}">
+
+
+                <!-- IMAGE -->
+
+                <div class="history-image-wrapper">
+
+                    <img class="history-image"
+                         th:src="@{${order.productImage}}"
+                         th:alt="${order.orderName}"
+                         onerror="this.onerror=null; this.src='/images/logo.png';">
+
+                </div>
+
+
+
+                <!-- INFO -->
+
+                <div class="history-info">
+
+
+                    <!-- MAIN -->
+
+                    <div class="history-main">
+
+                        <div>
+
+                            <h3 th:text="${order.orderName}">
+                                Product Name
+                            </h3>
+
+                            <div class="order-number">
+
+                                <i class="fa-solid fa-hashtag"></i>
+
+                                Order ID:
+
+                                <span th:text="${order.orderId}">
+                                    0
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- STATUS -->
+
+                        <span class="status status-pending"
+                              th:if="${order.orderStatus == null or order.orderStatus == 'Pending'}">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            <span th:text="${order.orderStatus != null ? order.orderStatus : 'Pending'}">
+                                Pending
+                            </span>
+
+                        </span>
+
+
+                        <span class="status status-delivery"
+                              th:if="${order.orderStatus == 'Out for Delivery'}">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Out for Delivery
+
+                        </span>
+
+
+                        <span class="status status-delivered"
+                              th:if="${order.orderStatus == 'Delivered'}">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Delivered
+
+                        </span>
+
+
+                        <span class="status status-cancelled"
+                              th:if="${order.orderStatus == 'Cancelled'}">
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Cancelled
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         HISTORY DETAILS
+                    ================================================== -->
+
+                    <div class="history-details">
+
+
+                        <!-- DATE -->
+
+                        <div>
+
+                            <span>
+
+                                <i class="fa-solid fa-calendar-days"></i>
+
+                                Order Date
+
+                            </span>
+
+                            <strong
+                                    th:if="${order.orderDate != null}"
+                                    th:text="${#dates.format(order.orderDate,'dd MMM yyyy')}">
+
+                                01 Jan 2026
+
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- PRICE -->
+
+                        <div>
+
+                            <span>
+
+                                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                                Price
+
+                            </span>
+
+                            <strong>
+
+                                ₹
+                                <span th:text="${order.orderPrice}">
+                                    0
+                                </span>
+
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- QUANTITY -->
+
+                        <div>
+
+                            <span>
+
+                                <i class="fa-solid fa-layer-group"></i>
+
+                                Quantity
+
+                            </span>
+
+                            <strong th:text="${order.orderQuantity}">
+                                1
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- TOTAL -->
+
+                        <div>
+
+                            <span>
+
+                                <i class="fa-solid fa-wallet"></i>
+
+                                Total Amount
+
+                            </span>
+
+                            <strong class="total-price">
+
+                                ₹
+                                <span th:text="${order.totalAmount}">
+                                    0
+                                </span>
+
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     EMPTY ORDERS
+===================================================== -->
+
+<div class="empty-orders"
+     th:if="${orders == null or #lists.isEmpty(orders)}">
+
+
+    <div class="empty-icon">
+
+        <i class="fa-solid fa-receipt"></i>
+
+    </div>
+
+
+    <h2>
+        No Orders Yet
+    </h2>
+
+
+    <p>
+        You haven't placed any orders yet.
+        Start exploring our delicious menu!
+    </p>
+
+
+    <a th:href="@{/products}"
+       class="browse-btn">
+
+        <i class="fa-solid fa-utensils"></i>
+
+        Browse Menu
+
+    </a>
+
+
+</div>
+
+
+
+<div class="page-bottom"></div>
+
+
+</body>
+
+</html>

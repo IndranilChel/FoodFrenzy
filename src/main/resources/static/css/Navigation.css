@@ -1,0 +1,437 @@
+    /* =====================================
+       FOODFRENZY NAVIGATION
+    ===================================== */
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family:'Poppins',sans-serif;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+
+        position:fixed;
+        top:0;
+        left:0;
+
+        width:100%;
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        padding:18px 8%;
+
+        background:rgba(15,15,15,.88);
+
+        backdrop-filter:blur(12px);
+
+        z-index:999;
+
+        transition:.3s;
+
+    }
+
+    /* LOGO */
+
+    .nav-logo{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:12px;
+
+        text-decoration:none;
+
+    }
+
+    .logo{
+
+        width:48px;
+
+        height:48px;
+
+        object-fit:contain;
+
+        transition:.3s;
+
+    }
+
+    .logo:hover{
+
+        transform:rotate(-10deg) scale(1.08);
+
+    }
+
+    .brand-name{
+
+        color:#fff;
+
+        font-size:28px;
+
+        font-weight:700;
+
+        letter-spacing:.5px;
+
+    }
+
+    /* MENU */
+
+    .nav-links{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:40px;
+
+        list-style:none;
+
+    }
+
+    .nav-links a{
+
+        position:relative;
+
+        text-decoration:none;
+
+        color:#fff;
+
+        font-size:17px;
+
+        font-weight:500;
+
+        transition:.3s;
+
+    }
+
+    .nav-links a:hover{
+
+        color:#FF6B35;
+
+    }
+
+    .nav-links a::after{
+
+        content:"";
+
+        position:absolute;
+
+        left:0;
+
+        bottom:-8px;
+
+        width:0;
+
+        height:3px;
+
+        background:#FF6B35;
+
+        transition:.3s;
+
+    }
+
+    .nav-links a:hover::after,
+
+    .nav-links .active::after{
+
+        width:100%;
+
+    }
+
+    .active{
+
+        color:#FF6B35 !important;
+
+    }
+
+    /* RIGHT SIDE */
+
+    .nav-right{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:18px;
+
+    }
+
+    .login-btn{
+
+        text-decoration:none;
+
+        color:#fff;
+
+        font-weight:600;
+
+        transition:.3s;
+
+    }
+
+    .login-btn:hover{
+
+        color:#FF6B35;
+
+    }
+
+    .order-btn{
+
+        text-decoration:none;
+
+        color:#fff;
+
+        background:#FF6B35;
+
+        padding:12px 28px;
+
+        border-radius:40px;
+
+        font-weight:600;
+
+        transition:.3s;
+
+    }
+
+    .order-btn:hover{
+
+        background:#ff814d;
+
+        transform:translateY(-3px);
+
+        box-shadow:0 10px 20px rgba(255,107,53,.35);
+
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px){
+
+    .navbar{
+
+    padding:18px 5%;
+
+    }
+
+    .brand-name{
+
+    display:none;
+
+    }
+
+    .nav-links{
+
+    gap:22px;
+
+    }
+
+    .nav-links a{
+
+    font-size:15px;
+
+    }
+
+    .order-btn{
+
+    padding:10px 20px;
+
+    }
+
+    }
+
+    @media(max-width:768px){
+
+    .nav-links{
+
+    display:none;
+
+    }
+
+    .login-btn{
+
+    display:none;
+
+    }
+
+    }
+    /* =========================================================
+       LOGGED-IN USER NAVIGATION
+    ========================================================= */
+
+    .logged-user-nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+
+    /* Common navigation button */
+
+    .logged-user-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+
+        padding: 11px 17px;
+
+        border-radius: 10px;
+
+        text-decoration: none;
+
+        font-size: 15px;
+        font-weight: 600;
+
+        transition: all 0.25s ease;
+
+        white-space: nowrap;
+    }
+
+
+    /* Back button */
+
+    .nav-back-btn {
+        color: white !important;
+        background: #555 !important;
+    }
+
+    .nav-back-btn:hover {
+        background: #777 !important;
+        transform: translateY(-2px);
+    }
+
+
+    /* Profile button */
+
+    .profile-btn {
+        color: white !important;
+        background: #ff9800 !important;
+    }
+
+    .profile-btn:hover {
+        background: #ffb300 !important;
+        transform: translateY(-2px);
+    }
+
+
+    /* Cart button */
+
+    .cart-btn {
+        color: white !important;
+        background: #ff7043 !important;
+    }
+
+    .cart-btn:hover {
+        background: #ff5722 !important;
+        transform: translateY(-2px);
+    }
+
+
+    /* Logout button */
+
+    .logout-btn {
+        color: white !important;
+        background: #e53935 !important;
+    }
+
+    .logout-btn:hover {
+        background: #c62828 !important;
+        transform: translateY(-2px);
+    }
+
+
+    /* Icons */
+
+    .logged-user-nav i {
+        font-size: 14px;
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+        .logged-user-nav {
+            gap: 5px;
+        }
+
+        .logged-user-nav a {
+            padding: 9px 11px;
+            font-size: 13px;
+        }
+
+    }
+    /* =====================================================
+       BACK TO HOME BUTTON
+    ===================================================== */
+
+    .back-home-container {
+
+        width: 95%;
+
+        margin: 18px auto 0;
+
+        display: flex;
+
+        justify-content: flex-start;
+
+    }
+
+
+    .back-home-btn {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        padding: 10px 18px;
+
+        background: #555;
+
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 9px;
+
+        font-size: 14px;
+
+        font-weight: 600;
+
+        transition: all 0.3s ease;
+
+    }
+
+
+    .back-home-btn:hover {
+
+        background: #ff9800;
+
+        color: white;
+
+        transform: translateX(-3px);
+
+        box-shadow:
+            0 5px 15px rgba(0,0,0,0.15);
+
+    }
+
+
+    .back-home-btn i {
+
+        font-size: 14px;
+
+    }

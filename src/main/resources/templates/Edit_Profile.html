@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>FoodFrenzy - Edit Profile</title>
+
+    <link rel="icon"
+          th:href="@{/images/logo.png}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          th:href="@{/css/Profile.css}">
+
+</head>
+
+<body>
+
+<a th:href="@{/products}"
+   class="back-button">
+
+    <i class="fa-solid fa-arrow-left"></i>
+
+    Back
+
+</a>
+
+
+<div class="profile-container">
+
+    <img th:src="@{/images/logo.png}"
+         class="profile-logo"
+         alt="FoodFrenzy Logo">
+
+
+    <h1>
+
+        <i class="fa-solid fa-user-pen"></i>
+
+        Edit Profile
+
+    </h1>
+
+    <p class="subtitle">
+
+        Update your account information
+
+    </p>
+
+
+    <div class="profile-card">
+
+
+        <form th:action="@{/updateProfile}"
+              method="post">
+
+
+            <label>Name</label>
+
+            <input type="text"
+                   name="uname"
+                   th:value="${user.uname}"
+                   required>
+
+
+            <label>Email</label>
+
+            <input type="email"
+                   name="uemail"
+                   th:value="${user.uemail}"
+                   required>
+
+
+            <label>Phone</label>
+
+            <input type="number"
+                   name="unumber"
+                   th:value="${user.unumber}"
+                   required>
+
+
+            <button type="submit"
+                    class="profile-button">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Save Changes
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

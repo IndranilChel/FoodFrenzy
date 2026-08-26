@@ -1,0 +1,745 @@
+/* =====================================================
+   FOODFRENZY ABOUT PAGE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #171717;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   COMMON SECTION
+===================================================== */
+
+section {
+    width: 100%;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 55px;
+}
+
+.section-heading span {
+    display: inline-block;
+    color: #ff6b35;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.section-heading p {
+    color: #bdbdbd;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.about-hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 150px 8% 90px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15, 15, 15, 0.98),
+            rgba(38, 22, 15, 0.96)
+        );
+}
+
+.about-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 107, 53, 0.12);
+
+    filter: blur(80px);
+
+    right: 5%;
+    top: 15%;
+}
+
+.hero-content {
+    max-width: 950px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.hero-tag {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border: 1px solid rgba(255, 107, 53, 0.5);
+
+    border-radius: 30px;
+
+    color: #ff6b35;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 22px;
+}
+
+.hero-content h1 {
+    font-size: clamp(48px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: #ff6b35;
+}
+
+.hero-content p {
+    max-width: 780px;
+
+    margin: auto;
+
+    color: #cfcfcf;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+.hero-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+    padding: 14px 30px;
+
+    background: #ff6b35;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-4px);
+
+    background: #ff814d;
+
+    box-shadow:
+        0 12px 30px rgba(255, 107, 53, 0.3);
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-section {
+    padding: 100px 8%;
+
+    background: #1c1c1c;
+}
+
+.about-grid {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 35px;
+
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #bdbdbd;
+
+    margin-bottom: 18px;
+
+    font-size: 16px;
+}
+
+.about-points {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.about-points div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #eeeeee;
+
+    font-size: 14px;
+}
+
+.about-points i {
+    color: #ff6b35;
+}
+
+.about-visual {
+    display: flex;
+
+    justify-content: center;
+}
+
+.visual-card {
+    width: 100%;
+
+    max-width: 420px;
+
+    min-height: 350px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252525,
+            #303030
+        );
+
+    border: 1px solid #383838;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.3);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.visual-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background: rgba(255,107,53,0.13);
+
+    top: -60px;
+
+    right: -50px;
+}
+
+.visual-card i {
+    font-size: 85px;
+
+    color: #ff6b35;
+
+    margin-bottom: 20px;
+}
+
+.visual-card h3 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.visual-card p {
+    color: #aaa;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features-section {
+    padding: 100px 8%;
+    background: #171717;
+}
+
+.feature-grid {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.feature-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #222;
+
+    border: 1px solid #303030;
+
+    border-radius: 20px;
+
+    transition: 0.35s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #ff6b35;
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,0.3);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 22px;
+
+    border-radius: 18px;
+
+    background: rgba(255,107,53,0.12);
+
+    color: #ff6b35;
+
+    font-size: 28px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #aaa;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   WORKFLOW
+===================================================== */
+
+.workflow-section {
+    padding: 100px 8%;
+
+    background: #1c1c1c;
+}
+
+.workflow {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.workflow-step {
+    text-align: center;
+
+    width: 210px;
+}
+
+.step-number {
+    color: #ff6b35;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.workflow-step i {
+    font-size: 38px;
+
+    color: #ffffff;
+
+    margin: 10px 0 15px;
+}
+
+.workflow-step h3 {
+    font-size: 19px;
+
+    margin-bottom: 6px;
+}
+
+.workflow-step p {
+    color: #999;
+
+    font-size: 13px;
+}
+
+.workflow-line {
+    width: 70px;
+
+    height: 2px;
+
+    background: #ff6b35;
+
+    margin: 0 10px;
+}
+
+
+/* =====================================================
+   TECHNOLOGY
+===================================================== */
+
+.technology-section {
+    padding: 100px 8%;
+
+    background: #171717;
+}
+
+.technology-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.technology-card {
+    padding: 30px;
+
+    background: #222;
+
+    border: 1px solid #303030;
+
+    border-radius: 18px;
+
+    transition: 0.3s ease;
+}
+
+.technology-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #ff6b35;
+}
+
+.technology-card i {
+    font-size: 32px;
+
+    color: #ff6b35;
+
+    margin-bottom: 15px;
+}
+
+.technology-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.technology-card p {
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.about-cta {
+    padding: 100px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6b35,
+            #e64d17
+        );
+}
+
+.cta-content {
+    max-width: 750px;
+
+    margin: auto;
+}
+
+.cta-content span {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.cta-content h2 {
+    font-size: 44px;
+
+    margin: 12px 0;
+}
+
+.cta-content p {
+    font-size: 16px;
+
+    opacity: 0.9;
+}
+
+.cta-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 28px;
+
+    padding: 14px 30px;
+
+    background: #171717;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.25);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.about-footer {
+    padding: 35px 8%;
+
+    background: #101010;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.about-footer h3 {
+    color: #ff6b35;
+
+    font-size: 22px;
+}
+
+.about-footer p {
+    color: #888;
+
+    font-size: 13px;
+}
+
+.copyright {
+    text-align: right;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .feature-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .technology-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .workflow {
+        flex-wrap: wrap;
+
+        gap: 35px;
+    }
+
+    .workflow-line {
+        display: none;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .about-hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .about-section,
+    .features-section,
+    .workflow-section,
+    .technology-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .feature-grid,
+    .technology-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-points {
+        grid-template-columns: 1fr;
+    }
+
+    .workflow {
+        flex-direction: column;
+    }
+
+    .cta-content h2 {
+        font-size: 32px;
+    }
+
+    .about-footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+}

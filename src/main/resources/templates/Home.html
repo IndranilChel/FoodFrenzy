@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Home : FoodFrenzy</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/Navigation.css}">
+
+    <link rel="stylesheet"
+          th:href="@{/css/Home.css}" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav th:replace="~{Navigation::navbar()}"></nav>
+
+<div class="hero-section">
+
+    <div class="hero-content">
+
+        <!-- NEW FOOD BADGE -->
+        <div class="hero-tag">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <span>
+                Fresh • Tasty • Fast
+            </span>
+
+        </div>
+
+        <h1>
+            Welcome to FoodFrenzy
+        </h1>
+
+        <p>
+            Order Delicious Food Anytime, Anywhere
+        </p>
+
+        <a th:href="@{/products}"
+           class="hero-btn">
+
+            Explore Menu
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

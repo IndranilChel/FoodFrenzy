@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+
+	<title>FoodFrenzy - Order Food</title>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet"
+		  th:href="@{/css/BuyProduct.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     TOP NAVIGATION
+========================================================= -->
+
+<div class="top-buttons">
+
+
+	<!-- BACK -->
+
+	<a th:href="@{/login}"
+	   class="back-button">
+
+		<i class="fa-solid fa-arrow-left"></i>
+
+		Back
+
+	</a>
+
+
+
+	<!-- RIGHT SIDE BUTTONS -->
+
+	<div class="user-actions">
+
+
+		<!-- PROFILE -->
+
+		<a th:href="@{/profile}"
+		   class="profile-top-button">
+
+			<i class="fa-solid fa-user"></i>
+
+			Profile
+
+		</a>
+
+
+
+		<!-- LOGOUT -->
+
+		<a th:href="@{/logout}"
+		   class="logout-top-button">
+
+			<i class="fa-solid fa-right-from-bracket"></i>
+
+			Logout
+
+		</a>
+
+
+	</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     PRODUCT SEARCH
+========================================================= -->
+
+<div class="searchInput">
+
+
+	<h1>FoodFrenzy</h1>
+
+
+	<h2>
+
+		<i class="fa-solid fa-magnifying-glass"></i>
+
+		Search Product
+
+	</h2>
+
+
+
+	<form th:action="@{/product/search}"
+		  method="post">
+
+
+		<input type="text"
+			   name="productName"
+			   required
+			   placeholder="Please enter the Product Name...">
+
+
+		<button type="submit">
+
+			<i class="fa-solid fa-search"></i>
+
+			SEARCH
+
+		</button>
+
+
+	</form>
+
+
+
+	<!-- SEARCH ERROR -->
+
+	<small class="error-message"
+		   th:text="${message}">
+	</small>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     ORDER PRODUCT
+========================================================= -->
+
+<div th:if="${product != null}"
+	 class="details order-product-section">
+
+
+	<form th:action="@{/product/order}"
+		  th:object="${order}"
+		  method="post">
+
+
+		<h2>
+
+			<i class="fa-solid fa-cart-shopping"></i>
+
+			Order Product
+
+		</h2>
+
+
+		<p class="order-subtitle">
+
+			Review your product and place your order
+
+		</p>
+
+
+
+		<!-- PRODUCT NAME -->
+
+		<label>
+
+			Product Name :
+
+		</label>
+
+
+		<input type="text"
+			   name="orderName"
+			   th:value="${product.name}"
+			   readonly>
+
+
+
+		<!-- PRODUCT PRICE -->
+
+		<label>
+
+			Product Price :
+
+		</label>
+
+
+		<input type="text"
+			   name="orderPrice"
+			   th:value="${product.price}"
+			   readonly>
+
+
+
+		<!-- QUANTITY -->
+
+		<label>
+
+			Quantity :
+
+		</label>
+
+
+		<input type="number"
+			   name="orderQuantity"
+			   placeholder="Minimum: 1"
+			   min="1"
+			   required>
+
+
+
+		<!-- PRODUCT IMAGE -->
+
+		<input type="hidden"
+			   name="productImage"
+			   th:value="${product.image}">
+
+
+
+		<!-- ORDER BUTTON -->
+
+		<button type="submit">
+
+			<i class="fa-solid fa-cart-plus"></i>
+
+			Order Now
+
+		</button>
+
+
+	</form>
+
+</div>
+
+
+
+<!-- =========================================================
+     YOUR ORDERS
+========================================================= -->
+
+<div th:if="${orders != null}"
+	 class="details orders-section">
+
+
+	<h2>
+
+		<i class="fa-solid fa-receipt"></i>
+
+		Your Orders
+
+	</h2>
+
+
+
+	<table>
+
+
+		<!-- TABLE HEADER -->
+
+		<thead>
+
+		<tr>
+
+
+			<th>
+
+				Product Name
+
+			</th>
+
+
+			<th>
+
+				Product Price
+
+			</th>
+
+
+			<th>
+
+				Quantity
+
+			</th>
+
+
+			<th>
+
+				Total Amount
+
+			</th>
+
+
+			<th>
+
+				Date
+
+			</th>
+
+
+			<th>
+
+				Status
+
+			</th>
+
+
+		</tr>
+
+		</thead>
+
+
+
+		<!-- TABLE BODY -->
+
+		<tbody>
+
+
+		<tr th:each="order : ${orders}">
+
+
+			<!-- PRODUCT -->
+
+			<td th:text="${order.orderName}">
+
+				Product
+
+			</td>
+
+
+
+			<!-- PRICE -->
+
+			<td th:text="${order.orderPrice}">
+
+				0.0
+
+			</td>
+
+
+
+			<!-- QUANTITY -->
+
+			<td th:text="${order.orderQuantity}">
+
+				1
+
+			</td>
+
+
+
+			<!-- TOTAL -->
+
+			<td th:text="${order.totalAmount}">
+
+				0.0
+
+			</td>
+
+
+
+			<!-- DATE -->
+
+			<td th:text="${order.orderDate}">
+
+				Date
+
+			</td>
+
+
+
+			<!-- STATUS -->
+
+			<td>
+
+
+                <span th:text="${order.orderStatus != null ? order.orderStatus : 'Pending'}"
+					  class="status">
+
+                    Pending
+
+                </span>
+
+
+			</td>
+
+
+		</tr>
+
+
+		</tbody>
+
+
+	</table>
+
+
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>FoodFrenzy - Admin Dashboard</title>
+
+	<link rel="icon"
+		  th:href="@{/images/logo.png}">
+
+	<link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+	<link rel="stylesheet"
+		  th:href="@{/css/Admin_Page.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="admin-top-bar">
+
+	<a class="back" th:href="@{/login}">
+		<i class="fa-solid fa-arrow-left"></i>
+		Back
+	</a>
+
+	<a class="logout-btn"
+	   th:href="@{/logout}"
+	   onclick="return confirm('Are you sure you want to logout?');">
+
+		<i class="fa-solid fa-right-from-bracket"></i>
+		Logout
+
+	</a>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD CARDS
+===================================================== -->
+
+<div class="dashboard">
+
+
+	<!-- USERS -->
+
+	<div class="card card-users">
+
+		<h3>
+			<i class="fa-solid fa-users"></i>
+			Total Users
+		</h3>
+
+		<h1 th:text="${totalUsers}">
+			0
+		</h1>
+
+	</div>
+
+
+	<!-- ADMINS -->
+
+	<div class="card card-admins">
+
+		<h3>
+			<i class="fa-solid fa-user-shield"></i>
+			Total Admins
+		</h3>
+
+		<h1 th:text="${totalAdmins}">
+			0
+		</h1>
+
+	</div>
+
+
+	<!-- PRODUCTS -->
+
+	<div class="card card-products">
+
+		<h3>
+			<i class="fa-solid fa-utensils"></i>
+			Products
+		</h3>
+
+		<h1 th:text="${totalProducts}">
+			0
+		</h1>
+
+	</div>
+
+
+	<!-- ORDERS -->
+
+	<div class="card card-orders">
+
+		<h3>
+			<i class="fa-solid fa-box"></i>
+			Orders
+		</h3>
+
+		<h1 th:text="${totalOrders}">
+			0
+		</h1>
+
+	</div>
+
+
+	<!-- REVENUE -->
+
+	<div class="card card-revenue">
+
+		<h3>
+			<i class="fa-solid fa-indian-rupee-sign"></i>
+			Revenue
+		</h3>
+
+		<h1>
+			₹ <span th:text="${totalRevenue}">0</span>
+		</h1>
+
+	</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     TABLES
+===================================================== -->
+
+<section class="tables">
+
+
+	<!-- =====================================================
+         ADMIN TABLE
+    ===================================================== -->
+
+	<div class="admins">
+
+		<h2>
+			<i class="fa-solid fa-user-shield"></i>
+			Admins
+		</h2>
+
+
+		<table>
+
+			<thead>
+
+			<tr>
+
+				<th>Admin ID</th>
+
+				<th>Admin Name</th>
+
+				<th>Admin Email</th>
+
+				<th>Admin Number</th>
+
+				<th>Actions</th>
+
+			</tr>
+
+			</thead>
+
+
+			<tbody>
+
+			<tr th:each="admin : ${admins}">
+
+				<td th:text="${admin.adminId}">
+					0
+				</td>
+
+				<td th:text="${admin.adminName}">
+					Admin
+				</td>
+
+				<td th:text="${admin.adminEmail}">
+					Email
+				</td>
+
+				<td th:text="${admin.adminNumber}">
+					Number
+				</td>
+
+
+				<td>
+
+					<a th:href="@{/updateAdmin/{id}(id=${admin.adminId})}"
+					   style="color:blue;">
+
+						<i class="fa-solid fa-pen"></i>
+
+					</a>
+
+					&nbsp;
+
+					<a th:href="@{/deleteAdmin/{id}(id=${admin.adminId})}"
+					   style="color:red;"
+					   onclick="return confirm('Delete this admin?');">
+
+						<i class="fa-solid fa-trash"></i>
+
+					</a>
+
+				</td>
+
+			</tr>
+
+			</tbody>
+
+		</table>
+
+
+		<a class="btns"
+		   th:href="@{/addAdmin}">
+
+			<i class="fa-solid fa-plus"></i>
+
+			Add Admin
+
+		</a>
+
+	</div>
+
+
+
+	<!-- =====================================================
+         USERS TABLE
+    ===================================================== -->
+
+	<div class="users">
+
+		<h2>
+			<i class="fa-solid fa-users"></i>
+			Users
+		</h2>
+
+
+		<table>
+
+			<thead>
+
+			<tr>
+
+				<th>User ID</th>
+
+				<th>User Name</th>
+
+				<th>User Email</th>
+
+				<th>User Number</th>
+
+				<th>Actions</th>
+
+			</tr>
+
+			</thead>
+
+
+			<tbody>
+
+			<tr th:each="user : ${users}">
+
+				<td th:text="${user.u_id}">
+					0
+				</td>
+
+				<td th:text="${user.uname}">
+					User
+				</td>
+
+				<td th:text="${user.uemail}">
+					Email
+				</td>
+
+				<td th:text="${user.unumber}">
+					Number
+				</td>
+
+
+				<td>
+
+					<a th:href="@{/updateUser/{id}(id=${user.u_id})}"
+					   style="color:blue;">
+
+						<i class="fa-solid fa-pen"></i>
+
+					</a>
+
+					&nbsp;
+
+					<a th:href="@{/deleteUser/{id}(id=${user.u_id})}"
+					   style="color:red;"
+					   onclick="return confirm('Delete this user?');">
+
+						<i class="fa-solid fa-trash"></i>
+
+					</a>
+
+				</td>
+
+			</tr>
+
+			</tbody>
+
+		</table>
+
+
+		<a class="btns"
+		   th:href="@{/addUser}">
+
+			<i class="fa-solid fa-plus"></i>
+
+			Add User
+
+		</a>
+
+	</div>
+
+
+
+	<!-- =====================================================
+         PRODUCTS TABLE
+    ===================================================== -->
+
+	<div class="products">
+
+		<h2>
+			<i class="fa-solid fa-utensils"></i>
+			Products
+		</h2>
+
+
+		<table>
+
+			<thead>
+
+			<tr>
+
+				<th>Product ID</th>
+
+				<th>Product Name</th>
+
+				<th>Product Price</th>
+
+				<th>Actions</th>
+
+			</tr>
+
+			</thead>
+
+
+			<tbody>
+
+			<tr th:each="product : ${products}">
+
+				<td th:text="${product.id}">
+					0
+				</td>
+
+				<td th:text="${product.name}">
+					Product
+				</td>
+
+				<td>
+					₹ <span th:text="${product.price}">0</span>
+				</td>
+
+
+				<td>
+
+					<a th:href="@{/updateProduct/{id}(id=${product.id})}"
+					   style="color:blue;">
+
+						<i class="fa-solid fa-pen"></i>
+
+					</a>
+
+					&nbsp;
+
+					<a th:href="@{/deleteProduct/{id}(id=${product.id})}"
+					   style="color:red;"
+					   onclick="return confirm('Delete this product?');">
+
+						<i class="fa-solid fa-trash"></i>
+
+					</a>
+
+				</td>
+
+			</tr>
+
+			</tbody>
+
+		</table>
+
+
+		<a class="btns"
+		   th:href="@{/addProduct}">
+
+			<i class="fa-solid fa-plus"></i>
+
+			Add Product
+
+		</a>
+
+	</div>
+
+
+
+	<!-- =====================================================
+         ORDERS TABLE
+    ===================================================== -->
+
+	<div class="details">
+
+		<h2>
+			<i class="fa-solid fa-box"></i>
+			Customer Orders
+		</h2>
+
+
+		<table>
+
+			<thead>
+
+			<tr>
+
+				<th>Order ID</th>
+
+				<th>Customer</th>
+
+				<th>Email</th>
+
+				<th>Product</th>
+
+				<th>Price</th>
+
+				<th>Quantity</th>
+
+				<th>Total</th>
+
+				<th>Status</th>
+
+				<th>Date</th>
+
+				<th>Action</th>
+
+			</tr>
+
+			</thead>
+
+
+			<tbody>
+
+
+			<tr th:each="order : ${orders}">
+
+
+				<!-- ORDER ID -->
+
+				<td th:text="${order.orderId}">
+					0
+				</td>
+
+
+				<!-- CUSTOMER -->
+
+				<td th:text="${order.user != null ? order.user.uname : 'Unknown User'}">
+					Unknown User
+				</td>
+
+
+				<!-- EMAIL -->
+
+				<td th:text="${order.user != null ? order.user.uemail : 'N/A'}">
+					N/A
+				</td>
+
+
+				<!-- PRODUCT -->
+
+				<td th:text="${order.orderName}">
+					Product
+				</td>
+
+
+				<!-- PRICE -->
+
+				<td>
+
+					₹
+
+					<span th:text="${order.orderPrice}">
+                    0
+                </span>
+
+				</td>
+
+
+				<!-- QUANTITY -->
+
+				<td th:text="${order.orderQuantity}">
+					1
+				</td>
+
+
+				<!-- TOTAL -->
+
+				<td>
+
+					₹
+
+					<span th:text="${order.totalAmount != null ? order.totalAmount : 0}">
+                    0
+                </span>
+
+				</td>
+
+
+				<!-- STATUS -->
+
+				<td>
+
+                <span class="btnStatus"
+					  th:text="${order.orderStatus != null ? order.orderStatus : 'Pending'}">
+
+                    Pending
+
+                </span>
+
+				</td>
+
+
+				<!-- DATE -->
+
+				<td>
+
+                <span th:if="${order.orderDate != null}"
+					  th:text="${#dates.format(order.orderDate,'dd MMM yyyy')}">
+
+                    Date
+
+                </span>
+
+					<span th:if="${order.orderDate == null}">
+                    N/A
+                </span>
+
+				</td>
+
+
+				<!-- ACTION -->
+
+				<td>
+
+
+					<a th:if="${order.orderStatus == null or order.orderStatus != 'Delivered'}"
+					   th:href="@{/admin/orderStatus/{id}(id=${order.orderId})}"
+					   class="btnStatus">
+
+						Next Status
+
+					</a>
+
+
+					<span th:if="${order.orderStatus == 'Delivered'}"
+						  style="color:lime;font-weight:bold;">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Completed
+
+                </span>
+
+
+				</td>
+
+
+			</tr>
+
+
+			</tbody>
+
+		</table>
+
+
+	</div>
+
+
+</section>
+
+
+</body>
+
+</html>

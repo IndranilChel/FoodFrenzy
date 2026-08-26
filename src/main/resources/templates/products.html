@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodFrenzy - Menu</title>
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- =====================================================
+         NAVIGATION CSS
+    ====================================================== -->
+
+    <link rel="stylesheet"
+          th:href="@{/css/Navigation.css}">
+
+
+    <!-- =====================================================
+         PRODUCT CSS
+    ====================================================== -->
+
+    <link rel="stylesheet"
+          th:href="@{/css/Product.css}">
+
+
+    <style>
+
+        /* =====================================================
+           PAGE
+        ====================================================== */
+
+        body {
+
+            margin: 0;
+
+            background: #f5f5f5;
+
+            font-family: Arial, sans-serif;
+
+        }
+
+
+        /* =====================================================
+           MENU ACTION BAR
+           BACK | PROFILE | CART | LOGOUT
+        ====================================================== */
+
+        .menu-action-bar {
+
+            width: 95%;
+
+            margin: 15px auto 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        /* =====================================================
+           LEFT SIDE
+        ====================================================== */
+
+        .menu-action-left {
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+        /* =====================================================
+           RIGHT SIDE
+        ====================================================== */
+
+        .menu-action-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        /* =====================================================
+           COMMON ACTION BUTTON
+        ====================================================== */
+
+        .menu-action-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 10px 17px;
+
+            border-radius: 9px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: all 0.3s ease;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ====================================================== */
+
+        .menu-back-btn {
+
+            background: #555;
+
+        }
+
+
+        .menu-back-btn:hover {
+
+            background: #333;
+
+            color: white;
+
+            transform: translateX(-3px);
+
+        }
+
+
+        /* =====================================================
+           PROFILE BUTTON
+        ====================================================== */
+
+        .menu-profile-btn {
+
+            background: #ff9800;
+
+        }
+
+
+        .menu-profile-btn:hover {
+
+            background: #e68900;
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           CART BUTTON
+        ====================================================== */
+
+        .menu-cart-btn {
+
+            background: #ff7043;
+
+        }
+
+
+        .menu-cart-btn:hover {
+
+            background: #f4511e;
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           LOGOUT BUTTON
+        ====================================================== */
+
+        .menu-logout-btn {
+
+            background: #e53935;
+
+        }
+
+
+        .menu-logout-btn:hover {
+
+            background: #c62828;
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ====================================================== */
+
+        .food-search {
+
+            width: 90%;
+
+            max-width: 900px;
+
+            margin: 35px auto;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+        }
+
+
+        .food-search input {
+
+            width: 70%;
+
+            padding: 15px 20px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+
+            font-size: 16px;
+
+            outline: none;
+
+        }
+
+
+        .food-search input:focus {
+
+            border-color: #ff9800;
+
+            box-shadow:
+                0 0 0 3px rgba(255,152,0,0.12);
+
+        }
+
+
+        .food-search button {
+
+            padding: 15px 25px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #ff9800;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        .food-search button:hover {
+
+            background: #ff6b00;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           PAGE HEADER
+        ====================================================== */
+
+        .menu-header {
+
+            text-align: center;
+
+            margin: 30px auto 40px;
+
+        }
+
+
+        .menu-header h1 {
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+
+            color: #222;
+
+        }
+
+
+        .menu-header h1 i {
+
+            color: #ff9800;
+
+        }
+
+
+        .menu-header p {
+
+            color: #666;
+
+            font-size: 18px;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT CONTAINER
+        ====================================================== */
+
+        .product-container {
+
+            width: 90%;
+
+            max-width: 1300px;
+
+            margin: 0 auto 60px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+
+            gap: 30px;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT CARD
+        ====================================================== */
+
+        .product-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.12);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        .product-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.18);
+
+        }
+
+
+        /* =====================================================
+           PRODUCT IMAGE
+        ====================================================== */
+
+        .product-image {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 220px;
+
+            overflow: hidden;
+
+            background: #eee;
+
+        }
+
+
+        .product-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.4s ease;
+
+        }
+
+
+        .product-card:hover
+        .product-image img {
+
+            transform: scale(1.08);
+
+        }
+
+
+        /* =====================================================
+           CATEGORY
+        ====================================================== */
+
+        .category {
+
+            position: absolute;
+
+            top: 15px;
+
+            left: 15px;
+
+            background: #ff9800;
+
+            color: white;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT CONTENT
+        ====================================================== */
+
+        .product-content {
+
+            padding: 20px;
+
+        }
+
+
+        .product-content h3 {
+
+            margin: 0 0 10px;
+
+            font-size: 21px;
+
+            color: #222;
+
+        }
+
+
+        /* =====================================================
+           RATING
+        ====================================================== */
+
+        .rating {
+
+            color: #ff9800;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =====================================================
+           PRICE + ACTION
+        ====================================================== */
+
+        .price-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .price {
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: #ff9800;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT ACTION BUTTON
+        ====================================================== */
+
+        .cart-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            padding: 11px 16px;
+
+            background: #ff9800;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            transition: all 0.3s ease;
+
+            white-space: nowrap;
+
+        }
+
+
+        .cart-btn:hover {
+
+            background: #ff6b00;
+
+            transform: translateY(-2px);
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           LOGIN TO ORDER
+        ====================================================== */
+
+        .login-order-btn {
+
+            background: #ff9800;
+
+        }
+
+
+        .login-order-btn:hover {
+
+            background: #ff6b00;
+
+        }
+
+
+        /* =====================================================
+           EMPTY PRODUCT MESSAGE
+        ====================================================== */
+
+        .empty-message {
+
+            text-align: center;
+
+            margin: 60px auto;
+
+            font-size: 22px;
+
+            color: #777;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 700px) {
+
+            .menu-action-bar {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 12px;
+
+            }
+
+
+            .menu-action-left {
+
+                justify-content: flex-start;
+
+            }
+
+
+            .menu-action-right {
+
+                justify-content: flex-end;
+
+                flex-wrap: wrap;
+
+            }
+
+
+            .menu-action-btn {
+
+                padding: 9px 13px;
+
+                font-size: 13px;
+
+            }
+
+
+            .food-search {
+
+                flex-direction: column;
+
+                align-items: center;
+
+            }
+
+
+            .food-search input {
+
+                width: 90%;
+
+            }
+
+
+            .food-search button {
+
+                width: 50%;
+
+            }
+
+
+            .menu-header h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .product-container {
+
+                width: 92%;
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .price-row {
+
+                flex-wrap: wrap;
+
+            }
+
+
+            .cart-btn {
+
+                width: 100%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MAIN NAVIGATION
+====================================================== -->
+
+<div th:replace="~{Navigation :: navbar}"></div>
+
+
+<!-- =====================================================
+     LOGGED-IN USER MENU ACTIONS
+
+     These buttons appear ONLY after user login.
+
+     Back | Profile | Cart | Logout
+====================================================== -->
+
+<div th:if="${session.loggedInUser != null}"
+     class="menu-action-bar">
+
+
+    <!-- =================================================
+         BACK
+    ================================================== -->
+
+    <a href="#"
+       class="menu-action-btn menu-back-btn"
+       onclick="goBack(event)">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back
+
+    </a>
+
+
+    <!-- =================================================
+         PROFILE | CART | LOGOUT
+    ================================================== -->
+
+    <div class="menu-action-right">
+
+
+        <!-- PROFILE -->
+
+        <a th:href="@{/profile}"
+           class="menu-action-btn menu-profile-btn">
+
+            <i class="fa-solid fa-user"></i>
+
+            Profile
+
+        </a>
+
+
+        <!-- CART -->
+
+        <a th:href="@{/cart}"
+           class="menu-action-btn menu-cart-btn">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            Cart
+
+        </a>
+
+
+        <!-- LOGOUT -->
+
+        <a th:href="@{/logout}"
+           class="menu-action-btn menu-logout-btn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </a>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SEARCH
+====================================================== -->
+
+<div class="food-search">
+
+    <input type="text"
+           id="foodSearch"
+           placeholder="Search your favorite food...">
+
+
+    <button type="button"
+            onclick="searchFood()">
+
+        <i class="fa-solid fa-search"></i>
+
+        Search
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     MENU HEADER
+====================================================== -->
+
+<section class="menu-header">
+
+    <h1>
+
+        <i class="fa-solid fa-utensils"></i>
+
+        Our Delicious Menu
+
+    </h1>
+
+
+    <p>
+
+        Freshly prepared food with premium quality ingredients.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUCTS
+====================================================== -->
+
+<div class="product-container">
+
+
+    <!-- =================================================
+         PRODUCT CARD
+    ================================================== -->
+
+    <div class="product-card"
+         th:each="product : ${products}">
+
+
+        <!-- =================================================
+             PRODUCT IMAGE
+        ================================================== -->
+
+        <div class="product-image">
+
+            <img th:src="@{${product.image}}"
+                 th:alt="${product.name}">
+
+
+            <span class="category"
+                  th:text="${product.category}">
+
+                Category
+
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             PRODUCT CONTENT
+        ================================================== -->
+
+        <div class="product-content">
+
+
+            <!-- PRODUCT NAME -->
+
+            <h3 th:text="${product.name}">
+
+                Product Name
+
+            </h3>
+
+
+            <!-- =================================================
+                 RATING
+            ================================================== -->
+
+            <div class="rating">
+
+                <i class="fa-solid fa-star"></i>
+
+                <i class="fa-solid fa-star"></i>
+
+                <i class="fa-solid fa-star"></i>
+
+                <i class="fa-solid fa-star"></i>
+
+                <i class="fa-solid fa-star"></i>
+
+                4.8
+
+            </div>
+
+
+            <!-- =================================================
+                 PRICE + CUSTOMER ACTION
+            ================================================== -->
+
+            <div class="price-row">
+
+
+                <!-- PRICE -->
+
+                <span class="price">
+
+                    ₹ <span th:text="${product.price}"></span>
+
+                </span>
+
+
+                <!-- =================================================
+                     LOGGED-IN USER
+                ================================================== -->
+
+                <a th:if="${session.loggedInUser != null}"
+                   th:href="@{/cart/add/{id}(id=${product.id})}"
+                   class="cart-btn">
+
+                    <i class="fa-solid fa-cart-plus"></i>
+
+                    Add to Cart
+
+                </a>
+
+
+                <!-- =================================================
+                     GUEST USER
+                ================================================== -->
+
+                <a th:if="${session.loggedInUser == null}"
+                   th:href="@{/login}"
+                   class="cart-btn login-order-btn">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    Login to Order
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     SEARCH SCRIPT
+====================================================== -->
+
+<script>
+
+    function searchFood() {
+
+        const input =
+            document
+                .getElementById("foodSearch")
+                .value
+                .toLowerCase()
+                .toLowerCase()
+                .trim();
+
+        const products =
+            document.querySelectorAll(".product-card");
+
+        products.forEach(function(card) {
+
+            const name =
+                card
+                    .querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+            if (name.includes(input)) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+            }
+
+        });
+    }
+
+
+    /* ===============================
+       BACK TO PREVIOUS PAGE
+    =============================== */
+
+    function goBack(event) {
+
+        event.preventDefault();
+
+        if (window.history.length > 1) {
+
+            window.history.back();
+
+        } else {
+
+            window.location.href = "/products";
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

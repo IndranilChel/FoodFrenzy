@@ -1,0 +1,655 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url('/images/background/restaurant.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: white;
+
+    padding: 40px 20px 60px;
+}
+
+
+/* =========================================================
+   TOP NAVIGATION
+========================================================= */
+
+.top-buttons {
+
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+    right: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* =========================================================
+   RIGHT SIDE BUTTONS
+========================================================= */
+
+.user-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   BACK / PROFILE / LOGOUT BUTTON
+========================================================= */
+
+.back-button,
+.profile-top-button,
+.logout-top-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 12px 22px;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.back-button {
+
+    background: #ff9800;
+}
+
+
+.back-button:hover {
+
+    background: #ff6b00;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile-top-button {
+
+    background: #ff9800;
+}
+
+
+.profile-top-button:hover {
+
+    background: #ff6b00;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-top-button {
+
+    background: #e74c3c;
+}
+
+
+.logout-top-button:hover {
+
+    background: #c0392b;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SEARCH SECTION
+========================================================= */
+
+.searchInput {
+
+    width: 90%;
+
+    max-width: 700px;
+
+    margin: 50px auto 30px;
+
+    padding: 30px;
+
+    background: rgba(40, 40, 40, 0.95);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   SEARCH TITLE
+========================================================= */
+
+.searchInput h1 {
+
+    color: #ff9800;
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+
+.searchInput h2 {
+
+    color: white;
+
+    margin-bottom: 25px;
+
+    font-size: 26px;
+}
+
+
+/* =========================================================
+   SEARCH FORM
+========================================================= */
+
+.searchInput form {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   SEARCH INPUT
+========================================================= */
+
+.searchInput input {
+
+    width: 65%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+.searchInput input:focus {
+
+    box-shadow:
+        0 0 0 2px #ff9800;
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+========================================================= */
+
+.searchInput button {
+
+    padding: 14px 22px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ff9800;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    white-space: nowrap;
+}
+
+
+.searchInput button:hover {
+
+    background: #ff6b00;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.error-message {
+
+    display: block;
+
+    margin-top: 15px;
+
+    color: #ff5555;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   DETAILS CARD
+========================================================= */
+
+.details {
+
+    width: 90%;
+
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    background: rgba(40, 40, 40, 0.95);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================================
+   DETAILS TITLE
+========================================================= */
+
+.details h2 {
+
+    color: #ff9800;
+
+    margin-bottom: 10px;
+
+    font-size: 28px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ORDER SUBTITLE
+========================================================= */
+
+.order-subtitle {
+
+    color: #ddd;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   PRODUCT FORM LABEL
+========================================================= */
+
+.details label {
+
+    display: block;
+
+    text-align: left;
+
+    margin: 12px 0 6px;
+
+    color: #ddd;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   PRODUCT INPUT
+========================================================= */
+
+.details input {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+.details input:focus {
+
+    box-shadow:
+        0 0 0 2px #ff9800;
+}
+
+
+/* =========================================================
+   ORDER BUTTON
+========================================================= */
+
+.details button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ff9800;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.details button:hover {
+
+    background: #ff6b00;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   YOUR ORDERS
+========================================================= */
+
+.orders-section {
+
+    max-width: 1200px;
+
+    overflow-x: auto;
+}
+
+
+.orders-section h2 {
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+thead th {
+
+    background: #ff9800;
+
+    color: white;
+
+    padding: 14px;
+
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+tbody td {
+
+    padding: 14px;
+
+    border-bottom: 1px solid #555;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+tbody tr {
+
+    transition: 0.3s;
+}
+
+
+tbody tr:hover {
+
+    background: rgba(255, 152, 0, 0.1);
+}
+
+
+/* =========================================================
+   ORDER STATUS
+========================================================= */
+
+.status {
+
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    background: #ff9800;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+
+        padding: 80px 10px 40px;
+    }
+
+
+    /* TOP BUTTONS */
+
+    .top-buttons {
+
+        top: 10px;
+
+        left: 10px;
+
+        right: 10px;
+    }
+
+
+    .user-actions {
+
+        gap: 6px;
+    }
+
+
+    .back-button,
+    .profile-top-button,
+    .logout-top-button {
+
+        padding: 9px 12px;
+
+        font-size: 13px;
+    }
+
+
+    /* SEARCH */
+
+    .searchInput {
+
+        width: 95%;
+
+        padding: 20px;
+
+        margin-top: 30px;
+    }
+
+
+    .searchInput h1 {
+
+        font-size: 30px;
+    }
+
+
+    .searchInput h2 {
+
+        font-size: 22px;
+    }
+
+
+    .searchInput form {
+
+        flex-direction: column;
+    }
+
+
+    .searchInput input {
+
+        width: 100%;
+    }
+
+
+    .searchInput button {
+
+        width: 100%;
+
+        margin: 0;
+    }
+
+
+    /* DETAILS */
+
+    .details {
+
+        width: 95%;
+
+        padding: 20px;
+    }
+
+
+    /* TABLE */
+
+    .orders-section {
+
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+
+    table {
+
+        min-width: 800px;
+
+        font-size: 14px;
+    }
+
+}

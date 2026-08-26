@@ -1,0 +1,1122 @@
+/* =====================================================
+   FOODFRENZY LOCATION PAGE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #171717;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   COMMON
+===================================================== */
+
+section {
+    width: 100%;
+}
+
+.section-title {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.section-title span {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #ff6b35;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    margin-bottom: 15px;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.section-title p {
+    color: #a9a9a9;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.location-hero {
+    min-height: 85vh;
+    padding: 150px 8% 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 107, 53, 0.14),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #111111,
+            #241710
+        );
+}
+
+.location-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    right: -130px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 107, 53, 0.08);
+
+    filter: blur(70px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+}
+
+.hero-label {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    color: #ff6b35;
+
+    border: 1px solid rgba(255, 107, 53, 0.45);
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 22px;
+}
+
+.hero-content h1 {
+    margin-bottom: 24px;
+
+    font-size: clamp(48px, 7vw, 80px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: #ff6b35;
+}
+
+.hero-content p {
+    max-width: 760px;
+
+    margin: auto;
+
+    color: #c5c5c5;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+.hero-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 32px;
+
+    padding: 14px 30px;
+
+    background: #ff6b35;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.hero-button:hover {
+    background: #ff8150;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(255, 107, 53, 0.25);
+}
+
+
+/* =====================================================
+   SERVICE AREA SECTION
+===================================================== */
+
+.service-section {
+    padding: 100px 7%;
+
+    background: #1c1c1c;
+}
+
+.service-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.35fr 0.8fr;
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   MAP BOX
+===================================================== */
+
+.map-box {
+    overflow: hidden;
+
+    background: #222222;
+
+    border: 1px solid #333333;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+.map-top {
+    padding: 25px 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.map-top small {
+    color: #ff6b35;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.map-top h3 {
+    margin-top: 5px;
+
+    font-size: 23px;
+}
+
+.map-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255, 107, 53, 0.12);
+
+    border-radius: 14px;
+
+    color: #ff6b35;
+
+    font-size: 23px;
+}
+
+
+/* =====================================================
+   MAP VISUAL
+===================================================== */
+
+.map-area {
+    min-height: 440px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-color: #252525;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+}
+
+.map-area::before {
+    content: "";
+
+    position: absolute;
+
+    width: 560px;
+    height: 560px;
+
+    border: 1px solid rgba(255, 107, 53, 0.10);
+
+    border-radius: 50%;
+}
+
+.map-area::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border: 1px solid rgba(255, 107, 53, 0.10);
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   MAP ROUTE
+===================================================== */
+
+.map-route {
+    position: relative;
+
+    width: 80%;
+    height: 250px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 2;
+}
+
+.map-road {
+    position: absolute;
+
+    left: 15%;
+    right: 15%;
+
+    top: 50%;
+
+    height: 3px;
+
+    transform: rotate(-7deg);
+
+    background: #ff6b35;
+
+    box-shadow:
+        0 0 12px rgba(255, 107, 53, 0.35);
+}
+
+.map-pin {
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.map-pin i {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50% 50% 50% 0;
+
+    transform: rotate(-45deg);
+
+    background: #ff6b35;
+
+    color: #ffffff;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 10px 25px rgba(255, 107, 53, 0.3);
+}
+
+.map-pin i::before {
+    transform: rotate(45deg);
+}
+
+.map-pin span {
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background: #181818;
+
+    border: 1px solid #3c3c3c;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* Slight position adjustment */
+
+.asansol-pin {
+    transform: translateY(20px);
+}
+
+.durgapur-pin {
+    transform: translateY(-25px);
+}
+
+
+/* =====================================================
+   MAP DESCRIPTION
+===================================================== */
+
+.map-description {
+    padding: 18px 28px;
+
+    border-top: 1px solid #333333;
+
+    background: #202020;
+
+    text-align: center;
+}
+
+.map-description p {
+    color: #a3a3a3;
+
+    font-size: 13px;
+}
+
+.map-description strong {
+    color: #ff6b35;
+}
+
+
+/* =====================================================
+   MAP BUTTONS
+===================================================== */
+
+.map-footer {
+    padding: 20px 28px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.map-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 12px 15px;
+
+    border-radius: 11px;
+
+    background: #ff6b35;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.map-button:hover {
+    background: #ff8150;
+
+    transform: translateY(-2px);
+}
+
+.map-button.secondary {
+    background: #303030;
+
+    border: 1px solid #444444;
+}
+
+.map-button.secondary:hover {
+    background: #383838;
+
+    border-color: #ff6b35;
+}
+
+
+/* =====================================================
+   CITY BOX
+===================================================== */
+
+.cities-box {
+    padding: 28px;
+
+    background: #222222;
+
+    border: 1px solid #333333;
+
+    border-radius: 24px;
+}
+
+.cities-title small {
+    color: #ff6b35;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.cities-title h3 {
+    margin-top: 5px;
+
+    margin-bottom: 25px;
+
+    font-size: 28px;
+}
+
+
+/* =====================================================
+   CITY
+===================================================== */
+
+.city {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 17px;
+
+    margin-bottom: 14px;
+
+    background: #292929;
+
+    border: 1px solid #363636;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.city:hover {
+    border-color: #ff6b35;
+
+    transform: translateX(6px);
+
+    background: #2e2e2e;
+}
+
+.city-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(255, 107, 53, 0.12);
+
+    color: #ff6b35;
+}
+
+.city-text {
+    flex: 1;
+}
+
+.city-text h4 {
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+.city-text p {
+    margin-top: 2px;
+
+    color: #929292;
+
+    font-size: 12px;
+}
+
+.arrow {
+    color: #777777;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   SERVICE NOTE
+===================================================== */
+
+.service-note {
+    display: flex;
+
+    gap: 11px;
+
+    margin-top: 24px;
+
+    padding: 16px;
+
+    background: rgba(255, 107, 53, 0.07);
+
+    border: 1px solid rgba(255, 107, 53, 0.15);
+
+    border-radius: 13px;
+}
+
+.service-note i {
+    margin-top: 4px;
+
+    color: #ff6b35;
+
+    font-size: 15px;
+}
+
+.service-note p {
+    color: #a0a0a0;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   DELIVERY SECTION
+===================================================== */
+
+.delivery-section {
+    padding: 100px 7%;
+
+    background: #171717;
+}
+
+.steps-container {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+.step-card {
+    position: relative;
+
+    padding: 30px 24px;
+
+    text-align: center;
+
+    background: #222222;
+
+    border: 1px solid #303030;
+
+    border-radius: 20px;
+
+    transition: 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #ff6b35;
+}
+
+.step-number {
+    position: absolute;
+
+    top: 15px;
+
+    right: 18px;
+
+    color: #ff6b35;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.step-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 10px auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(255, 107, 53, 0.12);
+
+    color: #ff6b35;
+
+    font-size: 27px;
+}
+
+.step-card h3 {
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+.step-card p {
+    color: #999999;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   INFO SECTION
+===================================================== */
+
+.info-section {
+    padding: 100px 7%;
+
+    background: #1c1c1c;
+}
+
+.info-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr 0.8fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.info-content > span {
+    color: #ff6b35;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.info-content h2 {
+    margin: 12px 0 18px;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+}
+
+.info-content > p {
+    color: #aaaaaa;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+.info-list {
+    margin-top: 28px;
+
+    display: grid;
+
+    gap: 14px;
+}
+
+.info-list div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #e5e5e5;
+
+    font-size: 14px;
+}
+
+.info-list i {
+    color: #ff6b35;
+}
+
+.online-card {
+    min-height: 320px;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292929,
+            #202020
+        );
+
+    border: 1px solid #383838;
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.online-card i {
+    margin-bottom: 20px;
+
+    color: #ff6b35;
+
+    font-size: 72px;
+}
+
+.online-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 28px;
+}
+
+.online-card p {
+    color: #999999;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.location-cta {
+    padding: 100px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6b35,
+            #e84e17
+        );
+}
+
+.cta-content {
+    max-width: 760px;
+
+    margin: auto;
+}
+
+.cta-content span {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.cta-content h2 {
+    margin: 10px 0;
+
+    font-size: 46px;
+}
+
+.cta-content p {
+    font-size: 16px;
+
+    opacity: 0.92;
+}
+
+.cta-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 28px;
+
+    padding: 14px 30px;
+
+    background: #171717;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.location-footer {
+    padding: 32px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: #101010;
+}
+
+.footer-brand h3 {
+    color: #ff6b35;
+
+    font-size: 22px;
+}
+
+.footer-brand p {
+    color: #888888;
+
+    font-size: 13px;
+}
+
+.footer-service {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #999999;
+
+    font-size: 13px;
+}
+
+.footer-service i {
+    color: #ff6b35;
+}
+
+.copyright {
+    color: #888888;
+
+    font-size: 13px;
+
+    text-align: right;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1050px) {
+
+    .service-container {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .info-container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .location-hero {
+        min-height: 75vh;
+
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .service-section,
+    .delivery-section,
+    .info-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .hero-content h1 {
+        font-size: 45px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .map-area {
+        min-height: 350px;
+    }
+
+    .map-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+
+    .info-content h2 {
+        font-size: 32px;
+    }
+
+    .cta-content h2 {
+        font-size: 34px;
+    }
+
+    .location-footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+}

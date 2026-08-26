@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>About | FoodFrenzy</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/x-icon"
+          th:href="@{/images/logo.png}">
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Navigation CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Navigation.css}">
+
+    <!-- About CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/About.css}">
+
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<div th:replace="~{Navigation :: navbar}"></div>
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="about-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            ABOUT FOODFRENZY
+        </span>
+
+        <h1>
+            Delicious Food,
+            <span>Simple Ordering.</span>
+        </h1>
+
+        <p>
+            FoodFrenzy is a web-based online food ordering
+            application designed to make discovering food,
+            managing orders, and enjoying a convenient ordering
+            experience simple and efficient.
+        </p>
+
+        <a th:href="@{/products}"
+           class="hero-btn">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            Explore Menu
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT SECTION ================= -->
+
+<section class="about-section">
+
+    <div class="section-heading">
+
+        <span>WHO WE ARE</span>
+
+        <h2>
+            About FoodFrenzy
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <h3>
+                A smarter way to order food
+            </h3>
+
+            <p>
+                FoodFrenzy is an online food ordering platform
+                developed to provide customers with a simple,
+                convenient, and user-friendly way to explore
+                available food products and place orders online.
+            </p>
+
+            <p>
+                The application provides an organized environment
+                where customers can browse food items, manage their
+                cart, and complete their orders, while administrators
+                can manage products, users, and order information.
+            </p>
+
+            <div class="about-points">
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Easy to use
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Efficient ordering
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Secure authentication
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Admin management
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-visual">
+
+            <div class="visual-card">
+
+                <i class="fa-solid fa-bowl-food"></i>
+
+                <h3>
+                    FoodFrenzy
+                </h3>
+
+                <p>
+                    Your food ordering experience,
+                    simplified.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section">
+
+    <div class="section-heading">
+
+        <span>OUR FEATURES</span>
+
+        <h2>
+            What FoodFrenzy Offers
+        </h2>
+
+        <p>
+            Everything needed for a smooth online food
+            ordering experience.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <!-- FEATURE 1 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <h3>
+                Browse Food
+            </h3>
+
+            <p>
+                Explore available food items and view
+                product information and prices easily.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE 2 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+            </div>
+
+            <h3>
+                Smart Cart
+            </h3>
+
+            <p>
+                Add products to your cart, manage quantities,
+                and review your selected items before ordering.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE 3 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-receipt"></i>
+
+            </div>
+
+            <h3>
+                Easy Ordering
+            </h3>
+
+            <p>
+                Complete your order through a simple and
+                organized checkout process.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE 4 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-user-tie"></i>
+
+            </div>
+
+            <h3>
+                Admin Management
+            </h3>
+
+            <p>
+                Administrators can manage users, products,
+                and order-related information.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="workflow-section">
+
+    <div class="section-heading">
+
+        <span>HOW IT WORKS</span>
+
+        <h2>
+            Simple Ordering Process
+        </h2>
+
+    </div>
+
+
+    <div class="workflow">
+
+        <div class="workflow-step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <h3>
+                Browse
+            </h3>
+
+            <p>
+                Explore food items from the menu.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-line"></div>
+
+
+        <div class="workflow-step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <i class="fa-solid fa-cart-plus"></i>
+
+            <h3>
+                Add to Cart
+            </h3>
+
+            <p>
+                Select your favorite products.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-line"></div>
+
+
+        <div class="workflow-step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <i class="fa-solid fa-credit-card"></i>
+
+            <h3>
+                Checkout
+            </h3>
+
+            <p>
+                Review your order and continue.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-line"></div>
+
+
+        <div class="workflow-step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h3>
+                Order
+            </h3>
+
+            <p>
+                Place your food order successfully.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TECHNOLOGY ================= -->
+
+<section class="technology-section">
+
+    <div class="section-heading">
+
+        <span>TECHNOLOGY</span>
+
+        <h2>
+            Built With Modern Technologies
+        </h2>
+
+        <p>
+            FoodFrenzy combines modern backend,
+            frontend, and database technologies.
+        </p>
+
+    </div>
+
+
+    <div class="technology-grid">
+
+
+        <div class="technology-card">
+
+            <i class="fa-brands fa-java"></i>
+
+            <h3>
+                Java
+            </h3>
+
+            <p>
+                Core backend programming language.
+            </p>
+
+        </div>
+
+
+        <div class="technology-card">
+
+            <i class="fa-solid fa-leaf"></i>
+
+            <h3>
+                Spring Boot
+            </h3>
+
+            <p>
+                Backend application framework.
+            </p>
+
+        </div>
+
+
+        <div class="technology-card">
+
+            <i class="fa-solid fa-code"></i>
+
+            <h3>
+                Thymeleaf
+            </h3>
+
+            <p>
+                Dynamic server-side web interface.
+            </p>
+
+        </div>
+
+
+        <div class="technology-card">
+
+            <i class="fa-solid fa-database"></i>
+
+            <h3>
+                PostgreSQL
+            </h3>
+
+            <p>
+                Relational database management system.
+            </p>
+
+        </div>
+
+
+        <div class="technology-card">
+
+            <i class="fa-solid fa-link"></i>
+
+            <h3>
+                JPA / Hibernate
+            </h3>
+
+            <p>
+                Database persistence and ORM.
+            </p>
+
+        </div>
+
+
+        <div class="technology-card">
+
+            <i class="fa-solid fa-laptop-code"></i>
+
+            <h3>
+                HTML & CSS
+            </h3>
+
+            <p>
+                User interface and visual design.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="about-cta">
+
+    <div class="cta-content">
+
+        <span>
+            READY TO ORDER?
+        </span>
+
+        <h2>
+            Discover something delicious.
+        </h2>
+
+        <p>
+            Explore the FoodFrenzy menu and find
+            your next favorite meal.
+        </p>
+
+        <a th:href="@{/products}"
+           class="cta-btn">
+
+            Order Now
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="about-footer">
+
+    <div>
+
+        <h3>
+            FoodFrenzy
+        </h3>
+
+        <p>
+            Delicious food. Simple ordering.
+        </p>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 FoodFrenzy. All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>

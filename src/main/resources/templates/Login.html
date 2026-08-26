@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodFrenzy Login</title>
+
+    <!-- FAVICON -->
+    <link rel="icon"
+          th:href="@{/images/logo.png}">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- NAVIGATION CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Navigation.css}">
+
+    <!-- LOGIN CSS -->
+    <link rel="stylesheet"
+          th:href="@{/css/Login.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- ===============================
+     BACK TO HOME
+================================ -->
+
+<a th:href="@{/}"
+   class="login-back-btn">
+
+    <i class="fa-solid fa-arrow-left"></i>
+
+    Back
+
+</a>
+
+
+<!-- =====================================================
+     LOGIN HEADER
+====================================================== -->
+
+<div class="login-header">
+
+    <img th:src="@{/images/logo.png}"
+         alt="FoodFrenzy Logo"
+         class="login-logo">
+
+    <h1>
+        FoodFrenzy
+    </h1>
+
+    <p>
+        Restaurant Ordering System
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN LOGIN CONTAINER
+====================================================== -->
+
+<div class="main-container">
+
+    <div class="login-wrapper">
+
+
+        <!-- =================================================
+             USER LOGIN
+        ================================================== -->
+
+        <div class="login-card user-login-card">
+
+
+            <!-- USER ICON -->
+
+            <div class="card-icon">
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h2>
+                User Login
+            </h2>
+
+
+            <!-- SUBTITLE -->
+
+            <p class="login-subtitle">
+                Welcome Back
+            </p>
+
+
+            <!-- USER LOGIN FORM -->
+
+            <form th:action="@{/userLogin}"
+                  method="post">
+
+
+                <!-- EMAIL -->
+
+                <input type="email"
+                       name="userEmail"
+                       placeholder="Enter Email"
+                       required>
+
+
+                <!-- PASSWORD -->
+
+                <div class="password-box">
+
+                    <input type="password"
+                           id="userPassword"
+                           name="userPassword"
+                           placeholder="Enter Password"
+                           required>
+
+
+                    <!-- SHOW / HIDE -->
+
+                    <span class="toggle-password"
+                          onclick="toggleUserPassword()">
+
+                        <i class="fa-solid fa-eye"
+                           id="userEye"></i>
+
+                    </span>
+
+                </div>
+
+
+                <!-- FORGOT PASSWORD -->
+
+                <div class="forgot-password">
+
+                    <a th:href="@{/forgot-password}">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button type="submit">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    User Login
+
+                </button>
+
+
+            </form>
+
+
+            <!-- REGISTER -->
+
+            <p class="register-text">
+
+                Don't have an account?
+
+                <a th:href="@{/register}">
+                    Register Here
+                </a>
+
+            </p>
+
+
+        </div>
+
+
+        <!-- =================================================
+             CENTER DIVIDER
+        ================================================== -->
+
+        <div class="login-divider">
+
+            <div class="line"></div>
+
+            <div class="or-circle">
+                OR
+            </div>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             ADMIN LOGIN
+        ================================================== -->
+
+        <div class="login-card admin-card">
+
+
+            <!-- ADMIN ICON -->
+
+            <div class="card-icon admin-icon">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h2>
+                Admin Login
+            </h2>
+
+
+            <!-- SUBTITLE -->
+
+            <p class="login-subtitle">
+                Administrator Access
+            </p>
+
+
+            <!-- ADMIN LOGIN FORM -->
+
+            <form th:action="@{/adminLogin}"
+                  method="post">
+
+
+                <!-- ADMIN EMAIL -->
+
+                <input type="email"
+                       name="email"
+                       placeholder="Enter Admin Email"
+                       required>
+
+
+                <!-- ADMIN PASSWORD -->
+
+                <div class="password-box">
+
+                    <input type="password"
+                           id="adminPassword"
+                           name="password"
+                           placeholder="Enter Password"
+                           required>
+
+
+                    <!-- SHOW / HIDE -->
+
+                    <span class="toggle-password"
+                          onclick="toggleAdminPassword()">
+
+                        <i class="fa-solid fa-eye"
+                           id="adminEye"></i>
+
+                    </span>
+
+                </div>
+
+
+                <!-- ADMIN LOGIN BUTTON -->
+
+                <button type="submit">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Admin Login
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+    function toggleUserPassword() {
+
+        const password =
+            document.getElementById("userPassword");
+
+        const eye =
+            document.getElementById("userEye");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            eye.classList.remove("fa-eye");
+
+            eye.classList.add("fa-eye-slash");
+
+        } else {
+
+            password.type = "password";
+
+            eye.classList.remove("fa-eye-slash");
+
+            eye.classList.add("fa-eye");
+
+        }
+
+    }
+
+
+    function toggleAdminPassword() {
+
+        const password =
+            document.getElementById("adminPassword");
+
+        const eye =
+            document.getElementById("adminEye");
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            eye.classList.remove("fa-eye");
+
+            eye.classList.add("fa-eye-slash");
+
+        } else {
+
+            password.type = "password";
+
+            eye.classList.remove("fa-eye-slash");
+
+            eye.classList.add("fa-eye");
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

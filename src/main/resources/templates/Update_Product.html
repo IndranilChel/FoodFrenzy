@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0">
+
+	<title>FoodFrenzy - Update Product</title>
+
+	<link rel="icon"
+		  th:href="@{/images/logo.png}">
+
+	<link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<link rel="stylesheet"
+		  th:href="@{/css/Add_Product.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACK BUTTON
+===================================================== -->
+
+<a th:href="@{/admin/services}"
+   class="back-button">
+
+	<i class="fa-solid fa-arrow-left"></i>
+
+	Back to Services
+
+</a>
+
+
+<!-- =====================================================
+     MAIN PAGE
+===================================================== -->
+
+<div class="page-wrapper">
+
+
+	<!-- =================================================
+         LEFT INFORMATION
+    ================================================== -->
+
+	<div class="info-panel">
+
+		<div class="brand">
+
+			<img th:src="@{/images/logo.png}"
+				 alt="FoodFrenzy Logo">
+
+			<h1>
+				FoodFrenzy
+			</h1>
+
+		</div>
+
+
+		<h2>
+			Update Product
+		</h2>
+
+
+		<p>
+
+			Update the selected food item and keep your
+			FoodFrenzy menu information accurate.
+
+		</p>
+
+
+		<div class="info-list">
+
+			<div class="info-item">
+
+				<i class="fa-solid fa-pen-to-square"></i>
+
+				<span>
+                    Edit product information
+                </span>
+
+			</div>
+
+
+			<div class="info-item">
+
+				<i class="fa-solid fa-image"></i>
+
+				<span>
+                    Update product image
+                </span>
+
+			</div>
+
+
+			<div class="info-item">
+
+				<i class="fa-solid fa-tags"></i>
+
+				<span>
+                    Update food category
+                </span>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	<!-- =================================================
+         FORM CARD
+    ================================================== -->
+
+	<div class="form-card">
+
+
+		<div class="form-header">
+
+			<div class="form-icon">
+
+				<i class="fa-solid fa-pen-to-square"></i>
+
+			</div>
+
+
+			<div>
+
+				<h2>
+					Edit Product
+				</h2>
+
+				<p>
+					Update the product information below
+				</p>
+
+			</div>
+
+		</div>
+
+
+
+		<!-- =================================================
+             UPDATE FORM
+        ================================================== -->
+
+		<form th:action="@{/updateProduct/{id}(id=${product.id})}"
+			  method="post">
+
+
+			<!-- PRODUCT NAME -->
+
+			<div class="form-group">
+
+				<label for="pname">
+
+					<i class="fa-solid fa-bowl-food"></i>
+
+					Product Name
+
+				</label>
+
+
+				<input type="text"
+					   id="pname"
+					   name="pname"
+					   th:value="${product.name}"
+					   placeholder="Enter Product Name"
+					   required>
+
+			</div>
+
+
+
+			<!-- PRODUCT PRICE -->
+
+			<div class="form-group">
+
+				<label for="pprice">
+
+					<i class="fa-solid fa-indian-rupee-sign"></i>
+
+					Product Price
+
+				</label>
+
+
+				<div class="input-icon">
+
+					<span>₹</span>
+
+					<input type="number"
+						   id="pprice"
+						   name="pprice"
+						   th:value="${product.price}"
+						   min="0"
+						   step="0.01"
+						   placeholder="Enter Product Price"
+						   required>
+
+				</div>
+
+			</div>
+
+
+
+			<!-- PRODUCT IMAGE -->
+
+			<div class="form-group">
+
+				<label for="pimage">
+
+					<i class="fa-solid fa-image"></i>
+
+					Product Image
+
+				</label>
+
+
+				<input type="text"
+					   id="pimage"
+					   name="pimage"
+					   th:value="${product.image}"
+					   placeholder="/images/products/pasta.jpg"
+					   required>
+
+
+				<small>
+
+					Example:
+					<strong>/images/products/pasta.jpg</strong>
+
+				</small>
+
+			</div>
+
+
+
+			<!-- PRODUCT CATEGORY -->
+
+			<div class="form-group">
+
+				<label for="pcategory">
+
+					<i class="fa-solid fa-tags"></i>
+
+					Product Category
+
+				</label>
+
+
+				<select id="pcategory"
+						name="pcategory"
+						required>
+
+					<option value="">
+						Select Category
+					</option>
+
+
+					<option value="Pizza"
+							th:selected="${product.category == 'Pizza'}">
+						Pizza
+					</option>
+
+
+					<option value="Burger"
+							th:selected="${product.category == 'Burger'}">
+						Burger
+					</option>
+
+
+					<option value="Biryani"
+							th:selected="${product.category == 'Biryani'}">
+						Biryani
+					</option>
+
+
+					<option value="Pasta"
+							th:selected="${product.category == 'Pasta'}">
+						Pasta
+					</option>
+
+
+					<option value="Chicken"
+							th:selected="${product.category == 'Chicken'}">
+						Chicken
+					</option>
+
+
+					<option value="Drinks"
+							th:selected="${product.category == 'Drinks'}">
+						Drinks
+					</option>
+
+
+					<option value="Dessert"
+							th:selected="${product.category == 'Dessert'}">
+						Dessert
+					</option>
+
+
+					<option value="Other"
+							th:selected="${product.category == 'Other'}">
+						Other
+					</option>
+
+				</select>
+
+			</div>
+
+
+
+			<!-- =================================================
+                 ACTIONS
+            ================================================== -->
+
+			<div class="form-actions">
+
+
+				<a th:href="@{/admin/services}"
+				   class="cancel-button">
+
+					<i class="fa-solid fa-xmark"></i>
+
+					Cancel
+
+				</a>
+
+
+				<button type="submit"
+						class="submit-button">
+
+					<i class="fa-solid fa-floppy-disk"></i>
+
+					Save Changes
+
+				</button>
+
+
+			</div>
+
+		</form>
+
+	</div>
+
+</div>
+
+
+</body>
+
+</html>

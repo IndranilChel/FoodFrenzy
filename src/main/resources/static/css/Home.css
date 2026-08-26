@@ -1,0 +1,735 @@
+/* =====================================================
+   FOODFRENZY HOME PAGE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+    overflow-x: hidden;
+
+    background: #f8f9fa;
+
+    color: #222;
+}
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 70px;
+
+    padding: 140px 8% 100px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.55) 50%,
+            rgba(0, 0, 0, 0.70) 100%
+        ),
+        url('/images/background/hero-bg1.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+
+    flex: 1;
+
+    max-width: 560px;
+
+    color: #ffffff;
+
+    padding-right: 50px;
+
+    z-index: 2;
+
+    animation: fadeLeft 0.9s ease;
+}
+
+
+/* =====================================================
+   FOOD BADGE
+===================================================== */
+
+.hero-tag {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    background: #FF6B35;
+
+    color: #ffffff;
+
+    padding: 10px 24px;
+
+    border-radius: 40px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 20px rgba(255, 107, 53, 0.20);
+}
+
+
+.hero-tag i {
+
+    font-size: 15px;
+
+    color: #ffffff;
+}
+
+
+.hero-tag span {
+
+    color: #ffffff;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   HERO HEADING
+===================================================== */
+
+.hero-content h1 {
+
+    font-size: 68px;
+
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    margin: 18px 0;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+
+.hero-content h1 span {
+
+    display: block;
+
+    color: #ff6b35;
+}
+
+
+/* =====================================================
+   HERO DESCRIPTION
+===================================================== */
+
+.hero-content p {
+
+    font-size: 20px;
+
+    line-height: 1.9;
+
+    color: #f5f5f5;
+
+    max-width: 520px;
+
+    margin-bottom: 40px;
+}
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+
+.hero-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    background: #ff6b35;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    padding: 18px 42px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    transition: 0.35s;
+
+    box-shadow:
+        0 10px 30px rgba(255, 107, 53, 0.35);
+}
+
+
+.hero-btn:hover {
+
+    transform: translateY(-5px);
+
+    background: #ff834d;
+}
+
+
+.hero-btn-outline {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border: 2px solid #ffffff;
+
+    color: #ffffff;
+
+    padding: 15px 34px;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.35s;
+}
+
+
+.hero-btn-outline:hover {
+
+    background: #ffffff;
+
+    color: #222222;
+}
+
+
+/* =====================================================
+   HERO STATS
+===================================================== */
+
+.hero-stats {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 40px;
+
+    margin-top: 45px;
+}
+
+
+.stat {
+
+    text-align: left;
+}
+
+
+.stat h3 {
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    margin-bottom: 3px;
+}
+
+
+.stat span {
+
+    color: #cfcfcf;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   HERO IMAGE
+===================================================== */
+
+.hero-image {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.hero-image img {
+
+    width: 620px;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    animation: float 4s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 20px 35px rgba(0, 0, 0, 0.45))
+        drop-shadow(0 0 30px rgba(255, 107, 53, 0.25));
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fadeLeft {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateX(-50px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+
+/* =====================================================
+   CATEGORIES
+===================================================== */
+
+.categories {
+
+    padding: 100px 8%;
+
+    background: #ffffff;
+}
+
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+
+.section-title span {
+
+    color: #ff6b35;
+
+    font-weight: 600;
+
+    font-size: 18px;
+}
+
+
+.section-title h2 {
+
+    font-size: 44px;
+
+    margin: 15px 0;
+
+    color: #222222;
+}
+
+
+.section-title p {
+
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    color: #666666;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+.category-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 30px;
+}
+
+
+.category-card {
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    transition: 0.35s;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.category-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+.category-card img {
+
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+}
+
+
+.category-card h3 {
+
+    margin-bottom: 10px;
+
+    color: #222222;
+}
+
+
+.category-card p {
+
+    color: #777777;
+}
+
+
+/* =====================================================
+   WHY CHOOSE US
+===================================================== */
+
+.why-us {
+
+    padding: 100px 8%;
+
+    background: #f8f9fa;
+}
+
+
+.why-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 30px;
+}
+
+
+.why-card {
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    transition: 0.35s;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.why-card:hover {
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+.why-icon {
+
+    width: 68px;
+
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 107, 53, 0.10);
+
+    color: #ff6b35;
+
+    font-size: 28px;
+}
+
+
+.why-card h3 {
+
+    color: #ff6b35;
+
+    margin-bottom: 15px;
+
+    font-size: 20px;
+}
+
+
+.why-card p {
+
+    color: #666666;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   RESPONSIVE — TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .hero-section {
+
+        gap: 35px;
+
+        padding-left: 6%;
+
+        padding-right: 6%;
+    }
+
+
+    .hero-content {
+
+        padding-right: 20px;
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 56px;
+    }
+
+
+    .category-container,
+    .why-container {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE — MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+
+        min-height: auto;
+
+        flex-direction: column;
+
+        padding:
+            120px
+            6%
+            80px;
+
+        text-align: center;
+    }
+
+
+    .hero-content {
+
+        max-width: 100%;
+
+        padding-right: 0;
+    }
+
+
+    .hero-tag {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 46px;
+    }
+
+
+    .hero-content p {
+
+        font-size: 16px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+
+    .hero-stats {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 25px;
+    }
+
+
+    .stat {
+
+        text-align: center;
+    }
+
+
+    .hero-image {
+
+        width: 100%;
+
+        margin-top: 30px;
+    }
+
+
+    .hero-image img {
+
+        width: 450px;
+    }
+
+
+    .category-container,
+    .why-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .section-title h2 {
+
+        font-size: 34px;
+    }
+
+
+    .section-title p {
+
+        font-size: 15px;
+    }
+}

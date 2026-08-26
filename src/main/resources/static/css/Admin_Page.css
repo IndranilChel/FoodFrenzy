@@ -1,0 +1,336 @@
+    body{
+
+        margin:0;
+        padding:20px;
+
+        background:#1f1f1f;
+
+        font-family:Poppins;
+
+        color:white;
+    }
+
+    .back{
+
+        text-decoration:none;
+
+        color:white;
+
+        background:#ff9800;
+
+        padding:10px 20px;
+
+        border-radius:8px;
+    }
+
+    .tables{
+
+        width:95%;
+    }
+
+    .tables div{
+
+        background:#2c2c2c;
+
+        padding:20px;
+
+        margin-top:30px;
+
+        border-radius:20px;
+
+        box-shadow:0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    h2{
+
+        color:#ff9800;
+
+        margin-bottom:20px;
+    }
+
+    table{
+
+        width:100%;
+
+        border-collapse:collapse;
+    }
+
+    table th{
+
+        background:#ff9800;
+
+        color:white;
+
+        padding:15px;
+    }
+
+    table td{
+
+        padding:15px;
+
+        text-align:center;
+
+        border-bottom:1px solid #555;
+    }
+
+    tr:hover{
+
+        background:#3a3a3a;
+    }
+
+    .btns{
+
+        display:inline-block;
+
+        margin-top:20px;
+
+        padding:10px 20px;
+
+        background:#ff9800;
+
+        color:white;
+
+        text-decoration:none;
+
+        border-radius:8px;
+
+        font-weight:bold;
+    }
+
+    .btns:hover{
+
+        background:#ffb733;
+    }
+    /* ===============================
+       DASHBOARD CARDS
+    ================================ */
+
+    .dashboard{
+
+        width:95%;
+
+        margin:20px auto 30px;
+
+        display:grid;
+
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+        gap:20px;
+
+    }
+
+    .card{
+
+        color:white;
+
+        padding:25px;
+
+        border-radius:18px;
+
+        box-shadow:0 8px 20px rgba(0,0,0,.35);
+
+        transition:.3s;
+
+    }
+
+    .card:hover{
+
+        transform:translateY(-8px);
+
+    }
+
+    .card h3{
+
+        margin:0;
+
+        font-size:20px;
+
+        font-weight:600;
+
+    }
+
+    .card h1{
+
+        margin-top:20px;
+
+        font-size:40px;
+
+    }
+
+    .card-users{
+
+        background:linear-gradient(135deg,#007bff,#00b4ff);
+
+    }
+
+    .card-admins{
+
+        background:linear-gradient(135deg,#6f42c1,#9b59b6);
+
+    }
+
+    .card-products{
+
+        background:linear-gradient(135deg,#28a745,#43d17b);
+
+    }
+
+    .card-orders{
+
+        background:linear-gradient(135deg,#ff9800,#ffb733);
+
+    }
+
+    .card-revenue{
+
+        background:linear-gradient(135deg,#dc3545,#ff6b81);
+
+    }
+    .btnStatus{
+
+        padding:8px 15px;
+
+        background:#ff9800;
+
+        color:white;
+
+        text-decoration:none;
+
+        border-radius:8px;
+
+        font-weight:bold;
+
+        transition:.3s;
+
+    }
+
+    .btnStatus:hover{
+
+        background:#ffb733;
+
+    }
+    /* =========================================
+       ADMIN TOP BAR
+    ========================================= */
+
+    .admin-top-bar {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        margin-bottom: 20px;
+
+    }
+
+
+    /* =========================================
+       BACK BUTTON
+    ========================================= */
+
+    .admin-top-bar .back {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding: 12px 22px;
+
+        background: #ff9800;
+
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 10px;
+
+        font-size: 16px;
+
+        font-weight: bold;
+
+        transition: all 0.3s ease;
+    }
+
+    .admin-top-bar .back:hover {
+
+        background: #ff6b00;
+
+        transform: translateY(-2px);
+
+    }
+
+
+    /* =========================================
+       LOGOUT BUTTON
+    ========================================= */
+
+    .admin-top-bar .logout-btn {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        padding: 12px 24px;
+
+        background: #e53935;
+
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 10px;
+
+        font-size: 16px;
+
+        font-weight: bold;
+
+        box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+
+        transition: all 0.3s ease;
+
+    }
+
+
+    /* LOGOUT HOVER */
+
+    .admin-top-bar .logout-btn:hover {
+
+        background: #c62828;
+
+        transform: translateY(-2px);
+
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width:700px) {
+
+        .admin-top-bar {
+
+            flex-direction: row;
+
+        }
+
+        .admin-top-bar .back,
+        .admin-top-bar .logout-btn {
+
+            padding: 10px 15px;
+
+            font-size: 14px;
+
+        }
+
+    }

@@ -1,0 +1,582 @@
+/* =========================================================
+   FOODFRENZY - ADD PRODUCT PAGE
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(15, 15, 15, 0.88),
+            rgba(15, 15, 15, 0.88)
+        ),
+        url('/images/background/product_add-bg.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-button {
+    position: fixed;
+
+    top: 25px;
+    left: 25px;
+
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 20px;
+
+    background: rgba(255, 152, 0, 0.95);
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.30);
+
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    background: #ff6b00;
+
+    transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
+
+.page-wrapper {
+    width: 92%;
+    max-width: 1150px;
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding: 90px 0 60px;
+
+    display: grid;
+
+    grid-template-columns:
+        0.85fr 1.15fr;
+
+    align-items: center;
+
+    gap: 60px;
+}
+
+
+/* =========================================================
+   LEFT INFORMATION
+========================================================= */
+
+.info-panel {
+    padding: 20px;
+}
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 35px;
+}
+
+.brand img {
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 5px;
+}
+
+.brand h1 {
+    color: #ff9800;
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+
+.info-panel h2 {
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+}
+
+.info-panel > p {
+    max-width: 450px;
+
+    color: #d6d6d6;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   INFO LIST
+========================================================= */
+
+.info-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.info-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color: #eeeeee;
+
+    font-size: 15px;
+}
+
+.info-item i {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    background: rgba(255, 152, 0, 0.15);
+
+    color: #ff9800;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.form-card {
+    width: 100%;
+
+    background: rgba(30, 30, 30, 0.96);
+
+    border:
+        1px solid
+        rgba(255, 152, 0, 0.20);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.55);
+
+    position: relative;
+}
+
+
+/* =========================================================
+   FORM HEADER
+========================================================= */
+
+.form-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 22px;
+
+    margin-bottom: 25px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+.form-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9800,
+            #ff6b00
+        );
+
+    font-size: 22px;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(255, 152, 0, 0.25);
+}
+
+.form-header h2 {
+    font-size: 27px;
+
+    margin-bottom: 5px;
+}
+
+.form-header p {
+    color: #999;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #f1f1f1;
+}
+
+.form-group label i {
+    color: #ff9800;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    height: 50px;
+
+    border:
+        1px solid
+        #454545;
+
+    outline: none;
+
+    border-radius: 10px;
+
+    padding: 0 15px;
+
+    background: #252525;
+
+    color: white;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #777;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #ff9800;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255, 152, 0, 0.12);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: #252525;
+
+    color: white;
+}
+
+
+/* =========================================================
+   PRICE INPUT
+========================================================= */
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon > span {
+    position: absolute;
+
+    left: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #ff9800;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+.input-icon input {
+    padding-left: 35px;
+}
+
+
+/* =========================================================
+   IMAGE HELP
+========================================================= */
+
+.form-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #777;
+
+    font-size: 11px;
+}
+
+.form-group small strong {
+    color: #ffad32;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 20px;
+
+    margin-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+.cancel-button,
+.submit-button {
+    min-width: 140px;
+
+    height: 48px;
+
+    padding: 0 20px;
+
+    border-radius: 10px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.cancel-button {
+    background: #383838;
+
+    border:
+        1px solid
+        #4b4b4b;
+
+    color: #dddddd;
+}
+
+.cancel-button:hover {
+    background: #484848;
+
+    color: white;
+}
+
+.submit-button {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9800,
+            #ff6b00
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(255, 107, 0, 0.25);
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(255, 107, 0, 0.35);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .page-wrapper {
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+
+        padding-top: 100px;
+    }
+
+    .info-panel {
+        text-align: center;
+    }
+
+    .brand {
+        justify-content: center;
+    }
+
+    .info-panel > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .info-list {
+        align-items: center;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .page-wrapper {
+        width: 94%;
+
+        padding-top: 90px;
+    }
+
+    .info-panel h2 {
+        font-size: 32px;
+    }
+
+    .form-card {
+        padding: 23px;
+
+        border-radius: 17px;
+    }
+
+    .form-header h2 {
+        font-size: 23px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .cancel-button,
+    .submit-button {
+        width: 100%;
+    }
+
+    .back-button {
+        top: 15px;
+        left: 15px;
+    }
+}

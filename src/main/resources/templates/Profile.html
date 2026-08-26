@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodFrenzy - My Profile</title>
+
+    <link rel="icon"
+          th:href="@{/images/logo.png}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          th:href="@{/css/Profile.css}">
+
+    <!-- =====================================================
+         MY ORDERS BUTTON
+    ====================================================== -->
+
+    <style>
+
+        .my-orders-top-button {
+
+            position: fixed;
+
+            top: 25px;
+
+            right: 30px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            height: 46px;
+
+            padding: 0 20px;
+
+            background: #ff9800;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.30);
+
+            z-index: 9999;
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .my-orders-top-button i {
+
+            font-size: 16px;
+        }
+
+
+        .my-orders-top-button:hover {
+
+            background: #ff6b00;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(255, 107, 0, 0.35);
+        }
+
+
+        .my-orders-top-button:active {
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            .my-orders-top-button {
+
+                top: 15px;
+
+                right: 15px;
+
+                height: 40px;
+
+                padding: 0 14px;
+
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACK BUTTON
+====================================================== -->
+
+<a href="javascript:history.back()"
+   class="back-button">
+
+    <i class="fa-solid fa-arrow-left"></i>
+
+    Back
+
+</a>
+
+
+
+<!-- =====================================================
+     MY ORDERS - TOP RIGHT
+====================================================== -->
+
+<a th:href="@{/my-orders}"
+   class="my-orders-top-button">
+
+    <i class="fa-solid fa-cart-shopping"></i>
+
+    My Orders
+
+</a>
+
+
+
+<!-- =====================================================
+     PROFILE
+====================================================== -->
+
+<div class="profile-container">
+
+
+    <!-- =================================================
+         LOGO
+    ================================================== -->
+
+    <img th:src="@{/images/logo.png}"
+         alt="FoodFrenzy Logo"
+         class="profile-logo">
+
+
+
+    <!-- =================================================
+         TITLE
+    ================================================== -->
+
+    <h1>
+
+        <i class="fa-solid fa-circle-user"></i>
+
+        My Profile
+
+    </h1>
+
+
+    <p class="subtitle">
+
+        Manage your FoodFrenzy account
+
+    </p>
+
+
+
+    <!-- =================================================
+         PROFILE CARD
+    ================================================== -->
+
+    <div class="profile-card">
+
+
+        <!-- USER ICON -->
+
+        <div class="profile-icon">
+
+            <i class="fa-solid fa-user"></i>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NAME
+        ================================================== -->
+
+        <div class="profile-row">
+
+            <div class="profile-label">
+
+                <i class="fa-solid fa-user"></i>
+
+                Name
+
+            </div>
+
+
+            <div class="profile-value"
+                 th:text="${user.uname}">
+
+                User Name
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             EMAIL
+        ================================================== -->
+
+        <div class="profile-row">
+
+            <div class="profile-label">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                Email
+
+            </div>
+
+
+            <div class="profile-value"
+                 th:text="${user.uemail}">
+
+                user@email.com
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PHONE
+        ================================================== -->
+
+        <div class="profile-row">
+
+            <div class="profile-label">
+
+                <i class="fa-solid fa-phone"></i>
+
+                Phone
+
+            </div>
+
+
+            <div class="profile-value"
+                 th:text="${user.unumber}">
+
+                Phone Number
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ACTIONS
+        ================================================== -->
+
+        <div class="profile-actions">
+
+
+            <!-- EDIT PROFILE -->
+
+            <a th:href="@{/editProfile}"
+               class="profile-button">
+
+                <i class="fa-solid fa-pen"></i>
+
+                Edit Profile
+
+            </a>
+
+
+
+            <!-- CHANGE PASSWORD -->
+
+            <a th:href="@{/changePassword}"
+               class="profile-button password-button">
+
+                <i class="fa-solid fa-key"></i>
+
+                Change Password
+
+            </a>
+
+
+
+            <!-- LOGOUT -->
+
+            <a th:href="@{/logout}"
+               class="profile-button logout-button">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
