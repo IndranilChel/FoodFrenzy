@@ -89,7 +89,7 @@ public class HomeController {
 
         model.addAttribute("userRegistration", new User());
 
-        return "Register";
+        return "register";
     }
 
     @PostMapping("/saveUser")
