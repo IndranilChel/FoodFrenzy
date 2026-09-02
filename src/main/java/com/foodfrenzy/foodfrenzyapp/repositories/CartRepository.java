@@ -11,7 +11,5 @@ import com.foodfrenzy.foodfrenzyapp.entities.User;
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Integer> {
 
-    // Get only the cart items belonging to a specific user
     List<Cart> findByUser(User user);
-
 }

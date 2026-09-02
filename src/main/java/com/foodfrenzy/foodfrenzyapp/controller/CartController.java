@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.servlet.http.HttpSession;
+
 import com.foodfrenzy.foodfrenzyapp.entities.Cart;
 import com.foodfrenzy.foodfrenzyapp.entities.Product;
 import com.foodfrenzy.foodfrenzyapp.entities.User;
 import com.foodfrenzy.foodfrenzyapp.services.CartServices;
 import com.foodfrenzy.foodfrenzyapp.services.ProductServices;
-
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/cart")
@@ -23,11 +23,9 @@ public class CartController {
     @Autowired
     private ProductServices productService;
 
-
-    // =========================================================
+    // ==============================
     // SHOW CART
-    // =========================================================
-
+    // ==============================
     @GetMapping
     public String showCart(
             Model model,
@@ -36,6 +34,7 @@ public class CartController {
         User loggedInUser =
                 (User) session.getAttribute("loggedInUser");
 
+        // User must be logged in
         if (loggedInUser == null) {
             return "redirect:/login";
         }
@@ -47,17 +46,15 @@ public class CartController {
 
         model.addAttribute(
                 "grandTotal",
-                cartService.getGrandTotal(loggedInUser)
+                cartService.getGrandTotalForUser(loggedInUser)
         );
 
         return "cart";
     }
 
-
-    // =========================================================
+    // ==============================
     // ADD PRODUCT TO CART
-    // =========================================================
-
+    // ==============================
     @GetMapping("/add/{id}")
     public String addToCart(
             @PathVariable int id,
@@ -66,6 +63,7 @@ public class CartController {
         User loggedInUser =
                 (User) session.getAttribute("loggedInUser");
 
+        // User must be logged in
         if (loggedInUser == null) {
             return "redirect:/login";
         }
@@ -77,25 +75,13 @@ public class CartController {
 
             Cart cart = new Cart();
 
-            cart.setProductName(
-                    product.getName()
-            );
-
-            cart.setProductPrice(
-                    product.getPrice()
-            );
-
+            cart.setProductName(product.getName());
+            cart.setProductPrice(product.getPrice());
             cart.setQuantity(1);
+            cart.setTotalPrice(product.getPrice());
+            cart.setProductImage(product.getImage());
 
-            cart.setTotalPrice(
-                    product.getPrice()
-            );
-
-            cart.setProductImage(
-                    product.getImage()
-            );
-
-            // Attach cart to logged-in user
+            // IMPORTANT: attach logged-in user
             cart.setUser(loggedInUser);
 
             cartService.addToCart(cart);
@@ -104,59 +90,71 @@ public class CartController {
         return "redirect:/cart";
     }
 
-
-    // =========================================================
+    // ==============================
     // REMOVE PRODUCT
-    // =========================================================
-
+    // ==============================
     @GetMapping("/remove/{id}")
     public String removeItem(
             @PathVariable int id,
             HttpSession session) {
 
-        if (session.getAttribute("loggedInUser") == null) {
+        User loggedInUser =
+                (User) session.getAttribute("loggedInUser");
+
+        if (loggedInUser == null) {
             return "redirect:/login";
         }
 
-        cartService.removeItem(id);
+        cartService.removeItemForUser(
+                id,
+                loggedInUser
+        );
 
         return "redirect:/cart";
     }
 
-
-    // =========================================================
+    // ==============================
     // INCREASE QUANTITY
-    // =========================================================
-
+    // ==============================
     @GetMapping("/increase/{id}")
     public String increase(
             @PathVariable int id,
             HttpSession session) {
 
-        if (session.getAttribute("loggedInUser") == null) {
+        User loggedInUser =
+                (User) session.getAttribute("loggedInUser");
+
+        if (loggedInUser == null) {
             return "redirect:/login";
         }
 
-        cartService.increaseQuantity(id);
+        cartService.increaseQuantityForUser(
+                id,
+                loggedInUser
+        );
 
         return "redirect:/cart";
     }
 
-
-    // =========================================================
+    // ==============================
     // DECREASE QUANTITY
-    // =========================================================
-
+    // ==============================
     @GetMapping("/decrease/{id}")
     public String decrease(
             @PathVariable int id,
             HttpSession session) {
 
-        if (session.getAttribute("loggedInUser") == null) {
+        User loggedInUser =
+                (User) session.getAttribute("loggedInUser");
+
+        if (loggedInUser == null) {
             return "redirect:/login";
         }
 
-        cartService.decreaseQuantity(id);
+        cartService.decreaseQuantityForUser(
+                id,
+                loggedInUser
+        );
 
         return "redirect:/cart";
     }

@@ -26,17 +26,14 @@ public class CheckoutController {
     @Autowired
     private OrderServices orderService;
 
-
-    // =========================================================
+    // ==============================
     // CHECKOUT PAGE
-    // =========================================================
-
+    // ==============================
     @GetMapping("/checkout")
     public String checkoutPage(
             Model model,
             HttpSession session) {
 
-        // Get logged-in user
         User loggedInUser =
                 (User) session.getAttribute("loggedInUser");
 
@@ -45,53 +42,33 @@ public class CheckoutController {
             return "redirect:/login";
         }
 
-
-        // Get ONLY this user's cart
+        // Get only this user's cart
         List<Cart> cartItems =
                 cartService.getCartItemsForUser(loggedInUser);
-
 
         // Cart empty
         if (cartItems == null || cartItems.isEmpty()) {
             return "redirect:/cart";
         }
 
-
-        // Get ONLY this user's total
+        // Calculate only this user's total
         double grandTotal =
-                cartService.getGrandTotal(loggedInUser);
+                cartService.getGrandTotalForUser(loggedInUser);
 
-
-        // Send cart data to checkout.html
-        model.addAttribute(
-                "cartItems",
-                cartItems
-        );
-
-        model.addAttribute(
-                "grandTotal",
-                grandTotal
-        );
-
-        model.addAttribute(
-                "user",
-                loggedInUser
-        );
-
+        model.addAttribute("cartItems", cartItems);
+        model.addAttribute("grandTotal", grandTotal);
+        model.addAttribute("user", loggedInUser);
 
         return "checkout";
     }
 
-
-    // =========================================================
+    // ==============================
     // PLACE ORDER
-    // =========================================================
-
+    // ==============================
     @PostMapping("/checkout/placeOrder")
     public String placeOrder(
             HttpSession session) {
 
-        // Get logged-in user
         User loggedInUser =
                 (User) session.getAttribute("loggedInUser");
 
@@ -100,131 +77,65 @@ public class CheckoutController {
             return "redirect:/login";
         }
 
-
-        // Get ONLY this user's cart
+        // Get only this user's cart
         List<Cart> cartItems =
                 cartService.getCartItemsForUser(loggedInUser);
-
 
         // Cart empty
         if (cartItems == null || cartItems.isEmpty()) {
             return "redirect:/cart";
         }
 
-
-        // =====================================================
-        // CREATE ORDER FOR EACH CART ITEM
-        // =====================================================
-
+        // Create order for each cart item
         for (Cart item : cartItems) {
 
             Orders order = new Orders();
-
-
-            // -------------------------------------------------
-            // PRODUCT NAME
-            // -------------------------------------------------
 
             order.setOrderName(
                     item.getProductName()
             );
 
-
-            // -------------------------------------------------
-            // PRODUCT PRICE
-            // -------------------------------------------------
-
             order.setOrderPrice(
                     item.getProductPrice()
             );
-
-
-            // -------------------------------------------------
-            // QUANTITY
-            // -------------------------------------------------
 
             order.setOrderQuantity(
                     item.getQuantity()
             );
 
-
-            // -------------------------------------------------
-            // TOTAL
-            // -------------------------------------------------
-
             order.setTotalAmount(
                     item.getTotalPrice()
             );
-
-
-            // -------------------------------------------------
-            // ORDER DATE
-            // -------------------------------------------------
 
             order.setOrderDate(
                     new Date()
             );
 
-
-            // -------------------------------------------------
-            // ORDER STATUS
-            // -------------------------------------------------
-
             order.setOrderStatus(
                     "Pending"
             );
-
-
-            // =================================================
-            // IMPORTANT:
-            // COPY PRODUCT IMAGE FROM CART TO ORDER
-            // =================================================
 
             order.setProductImage(
                     item.getProductImage()
             );
 
-
-            // -------------------------------------------------
-            // ATTACH USER
-            // -------------------------------------------------
-
+            // Attach logged-in user
             order.setUser(
                     loggedInUser
             );
 
-
-            // -------------------------------------------------
-            // SAVE ORDER
-            // -------------------------------------------------
-
-            orderService.saveOrder(
-                    order
-            );
+            orderService.saveOrder(order);
         }
 
-
-        // =====================================================
-        // CLEAR ONLY THIS USER'S CART
-        // =====================================================
-
-        cartService.clearCart(
-                loggedInUser
-        );
-
-
-        // =====================================================
-        // ORDER SUCCESS
-        // =====================================================
+        // Clear only this user's cart
+        cartService.clearCartForUser(loggedInUser);
 
         return "redirect:/order-success";
     }
 
-
-    // =========================================================
-    // ORDER SUCCESS PAGE
-    // =========================================================
-
+    // ==============================
+    // ORDER SUCCESS
+    // ==============================
     @GetMapping("/order-success")
     public String orderSuccess(
             HttpSession session) {

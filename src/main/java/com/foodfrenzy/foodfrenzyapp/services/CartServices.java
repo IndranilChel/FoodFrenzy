@@ -15,22 +15,24 @@ public class CartServices {
     @Autowired
     private CartRepository cartRepository;
 
+    // ==============================
+    // SAVE CART ITEM
+    // ==============================
+    public void addToCart(Cart cart) {
+        cartRepository.save(cart);
+    }
 
-    // =========================================================
-    // GET CART ITEMS FOR CURRENT USER
-    // =========================================================
-
+    // ==============================
+    // GET USER CART
+    // ==============================
     public List<Cart> getCartItemsForUser(User user) {
-
         return cartRepository.findByUser(user);
     }
 
-
-    // =========================================================
-    // GET GRAND TOTAL FOR CURRENT USER
-    // =========================================================
-
-    public double getGrandTotal(User user) {
+    // ==============================
+    // GRAND TOTAL FOR USER
+    // ==============================
+    public double getGrandTotalForUser(User user) {
 
         double total = 0;
 
@@ -38,68 +40,45 @@ public class CartServices {
                 cartRepository.findByUser(user);
 
         for (Cart item : cartItems) {
-
             total += item.getTotalPrice();
         }
 
         return total;
     }
 
-
-    // =========================================================
-    // SAVE PRODUCT TO CART
-    // =========================================================
-
-    public void addToCart(Cart cart) {
-
-        cartRepository.save(cart);
-    }
-
-
-    // =========================================================
-    // REMOVE CART ITEM
-    // =========================================================
-
-    public void removeItem(int id) {
-
-        cartRepository.deleteById(id);
-    }
-
-
-    // =========================================================
-    // FIND CART ITEM
-    // =========================================================
-
-    public Cart getCartItem(int id) {
-
-        return cartRepository
-                .findById(id)
-                .orElse(null);
-    }
-
-
-    // =========================================================
-    // UPDATE CART ITEM
-    // =========================================================
-
-    public void updateCart(Cart cart) {
-
-        cartRepository.save(cart);
-    }
-
-
-    // =========================================================
-    // INCREASE QUANTITY
-    // =========================================================
-
-    public void increaseQuantity(int id) {
+    // ==============================
+    // REMOVE ITEM
+    // ==============================
+    public void removeItemForUser(
+            int id,
+            User user) {
 
         Cart cart =
-                cartRepository
-                        .findById(id)
+                cartRepository.findById(id)
                         .orElse(null);
 
-        if (cart != null) {
+        if (cart != null
+                && cart.getUser() != null
+                && cart.getUser().getU_id() == user.getU_id()) {
+
+            cartRepository.deleteById(id);
+        }
+    }
+
+    // ==============================
+    // INCREASE QUANTITY
+    // ==============================
+    public void increaseQuantityForUser(
+            int id,
+            User user) {
+
+        Cart cart =
+                cartRepository.findById(id)
+                        .orElse(null);
+
+        if (cart != null
+                && cart.getUser() != null
+                && cart.getUser().getU_id() == user.getU_id()) {
 
             cart.setQuantity(
                     cart.getQuantity() + 1
@@ -114,19 +93,20 @@ public class CartServices {
         }
     }
 
-
-    // =========================================================
+    // ==============================
     // DECREASE QUANTITY
-    // =========================================================
-
-    public void decreaseQuantity(int id) {
+    // ==============================
+    public void decreaseQuantityForUser(
+            int id,
+            User user) {
 
         Cart cart =
-                cartRepository
-                        .findById(id)
+                cartRepository.findById(id)
                         .orElse(null);
 
         if (cart != null
+                && cart.getUser() != null
+                && cart.getUser().getU_id() == user.getU_id()
                 && cart.getQuantity() > 1) {
 
             cart.setQuantity(
@@ -142,12 +122,10 @@ public class CartServices {
         }
     }
 
-
-    // =========================================================
-    // CLEAR CURRENT USER CART
-    // =========================================================
-
-    public void clearCart(User user) {
+    // ==============================
+    // CLEAR USER CART
+    // ==============================
+    public void clearCartForUser(User user) {
 
         List<Cart> cartItems =
                 cartRepository.findByUser(user);
