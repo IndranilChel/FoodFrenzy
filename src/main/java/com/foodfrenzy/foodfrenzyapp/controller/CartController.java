@@ -49,7 +49,7 @@ public class CartController {
                 cartService.getGrandTotalForUser(loggedInUser)
         );
 
-        return "cart";
+        return "Cart";
     }
 
     // ==============================
