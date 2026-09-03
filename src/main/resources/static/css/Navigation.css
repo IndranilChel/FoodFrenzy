@@ -1,437 +1,426 @@
-    /* =====================================
-       FOODFRENZY NAVIGATION
-    ===================================== */
+/* =====================================================
+   FOODFRENZY NAVIGATION
+===================================================== */
 
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body{
-        font-family:'Poppins',sans-serif;
-    }
+body {
+    font-family: 'Poppins', sans-serif;
+}
 
-    /* NAVBAR */
 
-    .navbar{
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-        position:fixed;
-        top:0;
-        left:0;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
 
-        width:100%;
+    width: 100%;
+    min-height: 80px;
 
-        display:flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        justify-content:space-between;
+    padding: 15px 8%;
 
-        align-items:center;
+    background: rgba(15, 15, 15, 0.92);
 
-        padding:18px 8%;
+    backdrop-filter: blur(12px);
 
-        background:rgba(15,15,15,.88);
+    z-index: 9999;
+}
 
-        backdrop-filter:blur(12px);
 
-        z-index:999;
+/* =====================================================
+   LOGO
+===================================================== */
 
-        transition:.3s;
+.nav-logo {
+    display: flex;
+    align-items: center;
 
-    }
+    gap: 12px;
 
-    /* LOGO */
+    text-decoration: none;
 
-    .nav-logo{
+    flex-shrink: 0;
+}
 
-        display:flex;
+.logo {
+    width: 48px;
+    height: 48px;
 
-        align-items:center;
+    object-fit: contain;
+}
 
-        gap:12px;
+.brand-name {
+    color: white;
 
-        text-decoration:none;
+    font-size: 28px;
+    font-weight: 700;
+}
 
-    }
 
-    .logo{
+/* =====================================================
+   DESKTOP MENU
+===================================================== */
 
-        width:48px;
+.nav-links {
+    display: flex;
 
-        height:48px;
+    align-items: center;
 
-        object-fit:contain;
+    gap: 35px;
 
-        transition:.3s;
+    list-style: none;
+}
 
-    }
+.nav-links li {
+    list-style: none;
+}
 
-    .logo:hover{
+.nav-links a {
+    color: white;
 
-        transform:rotate(-10deg) scale(1.08);
+    text-decoration: none;
 
-    }
+    font-size: 17px;
+    font-weight: 500;
 
-    .brand-name{
+    transition: 0.3s;
+}
 
-        color:#fff;
+.nav-links a:hover {
+    color: #FF6B35;
+}
 
-        font-size:28px;
 
-        font-weight:700;
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
 
-        letter-spacing:.5px;
+.nav-right {
+    display: flex;
+    align-items: center;
 
-    }
+    flex-shrink: 0;
+}
 
-    /* MENU */
+.guest-nav {
+    display: flex;
+    align-items: center;
 
-    .nav-links{
+    gap: 15px;
+}
 
-        display:flex;
+.login-btn {
+    color: white;
 
-        align-items:center;
+    text-decoration: none;
 
-        gap:40px;
+    font-weight: 600;
+}
 
-        list-style:none;
+.order-btn {
+    display: inline-flex;
 
-    }
+    align-items: center;
+    justify-content: center;
 
-    .nav-links a{
+    background: #FF6B35;
+    color: white;
 
-        position:relative;
+    text-decoration: none;
 
-        text-decoration:none;
+    padding: 12px 24px;
 
-        color:#fff;
+    border-radius: 30px;
 
-        font-size:17px;
+    font-weight: 600;
+}
 
-        font-weight:500;
 
-        transition:.3s;
+/* =====================================================
+   LOGGED-IN USER
+===================================================== */
 
-    }
+.logged-user-nav {
+    display: flex;
 
-    .nav-links a:hover{
+    align-items: center;
 
-        color:#FF6B35;
+    gap: 7px;
+}
 
-    }
+.logged-user-nav a {
+    display: inline-flex;
 
-    .nav-links a::after{
+    align-items: center;
+    justify-content: center;
 
-        content:"";
+    padding: 9px 12px;
 
-        position:absolute;
+    border-radius: 9px;
 
-        left:0;
+    color: white;
 
-        bottom:-8px;
+    text-decoration: none;
 
-        width:0;
+    font-size: 13px;
+    font-weight: 600;
 
-        height:3px;
+    white-space: nowrap;
+}
 
-        background:#FF6B35;
+.nav-back-btn {
+    background: #555;
+}
 
-        transition:.3s;
+.profile-btn {
+    background: #FF9800;
+}
 
-    }
+.cart-btn {
+    background: #FF7043;
+}
 
-    .nav-links a:hover::after,
+.logout-btn {
+    background: #E53935;
+}
 
-    .nav-links .active::after{
 
-        width:100%;
+/* =====================================================
+   MOBILE BUTTON
+===================================================== */
 
-    }
+.mobile-menu-btn {
+    display: none;
 
-    .active{
+    width: 42px;
+    height: 42px;
 
-        color:#FF6B35 !important;
+    border: none;
+    border-radius: 9px;
 
-    }
+    background: #FF6B35;
+    color: white;
 
-    /* RIGHT SIDE */
+    font-size: 23px;
 
-    .nav-right{
+    cursor: pointer;
 
-        display:flex;
+    flex-shrink: 0;
+}
 
-        align-items:center;
 
-        gap:18px;
+/* =====================================================
+   MOBILE / TABLET
+===================================================== */
 
-    }
+@media screen and (max-width: 768px) {
 
-    .login-btn{
+    .navbar {
+        min-height: 64px;
 
-        text-decoration:none;
+        padding: 10px 14px;
 
-        color:#fff;
-
-        font-weight:600;
-
-        transition:.3s;
-
-    }
-
-    .login-btn:hover{
-
-        color:#FF6B35;
-
-    }
-
-    .order-btn{
-
-        text-decoration:none;
-
-        color:#fff;
-
-        background:#FF6B35;
-
-        padding:12px 28px;
-
-        border-radius:40px;
-
-        font-weight:600;
-
-        transition:.3s;
-
-    }
-
-    .order-btn:hover{
-
-        background:#ff814d;
-
-        transform:translateY(-3px);
-
-        box-shadow:0 10px 20px rgba(255,107,53,.35);
-
-    }
-
-    /* RESPONSIVE */
-
-    @media(max-width:992px){
-
-    .navbar{
-
-    padding:18px 5%;
-
-    }
-
-    .brand-name{
-
-    display:none;
-
-    }
-
-    .nav-links{
-
-    gap:22px;
-
-    }
-
-    .nav-links a{
-
-    font-size:15px;
-
-    }
-
-    .order-btn{
-
-    padding:10px 20px;
-
-    }
-
-    }
-
-    @media(max-width:768px){
-
-    .nav-links{
-
-    display:none;
-
-    }
-
-    .login-btn{
-
-    display:none;
-
-    }
-
-    }
-    /* =========================================================
-       LOGGED-IN USER NAVIGATION
-    ========================================================= */
-
-    .logged-user-nav {
         display: flex;
+        flex-wrap: wrap;
+
         align-items: center;
-        gap: 10px;
     }
 
 
-    /* Common navigation button */
+    /* Logo */
+    .nav-logo {
+        order: 1;
+    }
 
-    .logged-user-nav a {
-        display: inline-flex;
+    .logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .brand-name {
+        display: none;
+    }
+
+
+    /* Hamburger */
+    .mobile-menu-btn {
+        display: flex;
+
         align-items: center;
         justify-content: center;
-        gap: 7px;
 
-        padding: 11px 17px;
+        order: 2;
+
+        margin-left: auto;
+    }
+
+
+    /* =================================================
+       HIDE DESKTOP MENU
+    ================================================= */
+
+    .nav-links {
+        order: 4;
+
+        position: absolute;
+
+        top: 100%;
+        left: 10px;
+        right: 10px;
+
+        width: auto;
+
+        display: none !important;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 5px 0;
+
+        background: rgba(15, 15, 15, 0.98);
 
         border-radius: 10px;
 
-        text-decoration: none;
-
-        font-size: 15px;
-        font-weight: 600;
-
-        transition: all 0.25s ease;
-
-        white-space: nowrap;
-    }
-
-
-    /* Back button */
-
-    .nav-back-btn {
-        color: white !important;
-        background: #555 !important;
-    }
-
-    .nav-back-btn:hover {
-        background: #777 !important;
-        transform: translateY(-2px);
-    }
-
-
-    /* Profile button */
-
-    .profile-btn {
-        color: white !important;
-        background: #ff9800 !important;
-    }
-
-    .profile-btn:hover {
-        background: #ffb300 !important;
-        transform: translateY(-2px);
-    }
-
-
-    /* Cart button */
-
-    .cart-btn {
-        color: white !important;
-        background: #ff7043 !important;
-    }
-
-    .cart-btn:hover {
-        background: #ff5722 !important;
-        transform: translateY(-2px);
-    }
-
-
-    /* Logout button */
-
-    .logout-btn {
-        color: white !important;
-        background: #e53935 !important;
-    }
-
-    .logout-btn:hover {
-        background: #c62828 !important;
-        transform: translateY(-2px);
-    }
-
-
-    /* Icons */
-
-    .logged-user-nav i {
-        font-size: 14px;
-    }
-
-
-    /* =========================================================
-       MOBILE
-    ========================================================= */
-
-    @media (max-width: 900px) {
-
-        .logged-user-nav {
-            gap: 5px;
-        }
-
-        .logged-user-nav a {
-            padding: 9px 11px;
-            font-size: 13px;
-        }
-
-    }
-    /* =====================================================
-       BACK TO HOME BUTTON
-    ===================================================== */
-
-    .back-home-container {
-
-        width: 95%;
-
-        margin: 18px auto 0;
-
-        display: flex;
-
-        justify-content: flex-start;
-
-    }
-
-
-    .back-home-btn {
-
-        display: inline-flex;
-
-        align-items: center;
-
-        gap: 9px;
-
-        padding: 10px 18px;
-
-        background: #555;
-
-        color: white;
-
-        text-decoration: none;
-
-        border-radius: 9px;
-
-        font-size: 14px;
-
-        font-weight: 600;
-
-        transition: all 0.3s ease;
-
-    }
-
-
-    .back-home-btn:hover {
-
-        background: #ff9800;
-
-        color: white;
-
-        transform: translateX(-3px);
+        list-style: none;
 
         box-shadow:
-            0 5px 15px rgba(0,0,0,0.15);
-
+            0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
 
-    .back-home-btn i {
+    /* =================================================
+       SHOW MOBILE MENU
+    ================================================= */
 
-        font-size: 14px;
-
+    .nav-links.mobile-open {
+        display: flex !important;
     }
+
+
+    .nav-links li {
+        width: 100%;
+    }
+
+
+    .nav-links a {
+        display: block !important;
+
+        width: 100%;
+
+        padding: 15px;
+
+        margin: 0 !important;
+
+        color: white !important;
+
+        text-align: center;
+
+        font-size: 16px;
+
+        border-bottom:
+            1px solid rgba(255,255,255,0.08);
+    }
+
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+
+    .nav-links a::after {
+        display: none !important;
+    }
+
+
+    /* =================================================
+       RIGHT SIDE
+    ================================================= */
+
+    .nav-right {
+        order: 3;
+
+        margin-left: 8px;
+    }
+
+
+    .login-btn {
+        display: none !important;
+    }
+
+
+    .order-btn {
+        padding: 9px 14px;
+
+        font-size: 12px;
+    }
+
+
+    /* Logged-in user */
+    .logged-user-nav {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: flex-end;
+
+        gap: 5px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONE
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    .navbar {
+        padding: 9px 12px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mobile-menu-btn {
+        width: 40px;
+        height: 40px;
+
+        font-size: 20px;
+    }
+
+    .nav-links {
+        left: 8px;
+        right: 8px;
+    }
+
+    .nav-links a {
+        padding: 14px;
+
+        font-size: 16px;
+    }
+
+    .order-btn {
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
+
+}

@@ -3,25 +3,18 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
     <meta charset="UTF-8">
-
 </head>
 
 <body>
 
-<!-- =====================================================
-     FOODFRENZY NAVIGATION BAR
-===================================================== -->
-
 <nav class="navbar" th:fragment="navbar()">
 
-    <!-- =================================================
+    <!-- =========================
          LOGO
-    ================================================== -->
+    ========================== -->
 
-    <a th:href="@{/}"
-       class="nav-logo">
+    <a th:href="@{/}" class="nav-logo">
 
         <img th:src="@{/images/logo.png}"
              alt="FoodFrenzy Logo"
@@ -34,11 +27,26 @@
     </a>
 
 
-    <!-- =================================================
-         MAIN NAVIGATION LINKS
-    ================================================== -->
+    <!-- =========================
+         MOBILE MENU BUTTON
+    ========================== -->
 
-    <ul class="nav-links">
+    <button type="button"
+            class="mobile-menu-btn"
+            id="mobileMenuButton"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+        ☰
+
+    </button>
+
+
+    <!-- =========================
+         NAVIGATION LINKS
+    ========================== -->
+
+    <ul class="nav-links" id="mobileNavLinks">
 
         <li>
             <a th:href="@{/}">
@@ -51,7 +59,6 @@
                 Menu
             </a>
         </li>
-        
 
         <li>
             <a th:href="@{/about}">
@@ -68,13 +75,13 @@
     </ul>
 
 
-    <!-- ================= RIGHT SIDE ================= -->
+    <!-- =========================
+         RIGHT SIDE
+    ========================== -->
 
     <div class="nav-right">
 
-        <!-- =================================================
-             GUEST USER
-        ================================================== -->
+        <!-- GUEST -->
 
         <div th:if="${session.loggedInUser == null}"
              class="guest-nav">
@@ -82,16 +89,13 @@
             <a th:href="@{/login}"
                class="login-btn">
 
-                <i class="fa-solid fa-right-to-bracket"></i>
                 Login
 
             </a>
 
-
             <a th:href="@{/products}"
                class="order-btn">
 
-                <i class="fa-solid fa-utensils"></i>
                 Order Now
 
             </a>
@@ -99,14 +103,10 @@
         </div>
 
 
-        <!-- =================================================
-             LOGGED-IN USER
-        ================================================== -->
+        <!-- LOGGED IN -->
 
         <div th:if="${session.loggedInUser != null}"
              class="logged-user-nav">
-
-            <!-- BACK -->
 
             <a th:if="${page == 'cart'}"
                th:href="@{/products}"
@@ -117,16 +117,6 @@
 
             </a>
 
-            <a th:href="@{/products}"
-               class="nav-back-btn">
-
-                <i class="fa-solid fa-arrow-left"></i>
-                Back
-
-            </a>
-
-
-            <!-- PROFILE -->
 
             <a th:href="@{/profile}"
                class="profile-btn">
@@ -137,8 +127,6 @@
             </a>
 
 
-            <!-- CART -->
-
             <a th:href="@{/cart}"
                class="cart-btn">
 
@@ -147,8 +135,6 @@
 
             </a>
 
-
-            <!-- LOGOUT -->
 
             <a th:href="@{/logout}"
                class="logout-btn">
@@ -162,25 +148,51 @@
 
     </div>
 
+
+    <!-- =========================
+         MOBILE MENU SCRIPT
+    ========================== -->
+
+    <script th:inline="javascript">
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const button =
+                document.getElementById("mobileMenuButton");
+
+            const menu =
+                document.getElementById("mobileNavLinks");
+
+
+            if (!button || !menu) {
+                return;
+            }
+
+
+            button.addEventListener("click", function () {
+
+                const isOpen =
+                    menu.classList.toggle("mobile-open");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    isOpen ? "true" : "false"
+                );
+
+                button.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Close navigation menu"
+                        : "Open navigation menu"
+                );
+
+            });
+
+        });
+
+    </script>
+
 </nav>
 
-
-<!-- =====================================================
-     BACK BUTTON SCRIPT
-===================================================== -->
-
-<script>
-
-    function goBack(event) {
-
-        event.preventDefault();
-
-        window.history.back();
-
-    }
-
-</script>
-
 </body>
-
 </html>
